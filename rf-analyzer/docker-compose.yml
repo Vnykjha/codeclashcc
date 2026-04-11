@@ -1,0 +1,28 @@
+version: '3.9'
+
+networks:
+  rf-net:
+    driver: bridge
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - rf-net
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - rf-net
+    depends_on:
+      - backend
+    restart: unless-stopped
