@@ -1,0 +1,100 @@
+[      35ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=67911b9c:21550
+[      57ms] [WARNING] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: WebSocket is closed before the connection is established. @ http://localhost:5173/src/hooks/useSignalFeed.js:70
+[      63ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[      63ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[      88ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[    2070ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[  114627ms] [ERROR] Warning: validateDOMNesting(...): %s cannot appear as a child of <%s>.%s%s%s <div> tbody   
+    at div
+    at http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:2824:7
+    at http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:127:13
+    at http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:104:13
+    at http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:217:13
+    at http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:261:7
+    at http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:3873:7
+    at http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:3808:58
+    at Presence (http://localhost:5173/node_modules/.vite/deps/chunk-WHU5SXA3.js?v=67911b9c:26:11)
+    at http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:3801:65
+    at _c (http://localhost:5173/src/components/ui/tooltip.jsx:24:11)
+    at Provider2 (http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:39:15)
+    at Provider2 (http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:2565:15)
+    at Popper (http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:2794:11)
+    at Tooltip (http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:3649:5)
+    at Provider2 (http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:39:15)
+    at TooltipProvider (http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=67911b9c:3605:5)
+    at tbody
+    at _c5 (http://localhost:5173/src/components/ui/table.jsx:53:12)
+    at table
+    at div
+    at div
+    at http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-scroll-area.js?v=67911b9c:151:13
+    at http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-scroll-area.js?v=67911b9c:316:13
+    at div
+    at http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-scroll-area.js?v=67911b9c:151:13
+    at Provider (http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-scroll-area.js?v=67911b9c:173:15)
+    at http://localhost:5173/node_modules/.vite/deps/@radix-ui_react-scroll-area.js?v=67911b9c:254:7
+    at _c (http://localhost:5173/src/components/ui/scroll-area.jsx:21:11)
+    at div
+    at FeedTable (http://localhost:5173/src/components/FeedTable.jsx:100:37)
+    at div
+    at div
+    at main
+    at div
+    at div
+    at App (http://localhost:5173/src/App.jsx:89:73)
+    at ThemeProvider (http://localhost:5173/src/context/ThemeContext.jsx:20:33) @ http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=67911b9c:520
+[  564243ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[  564253ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[  566259ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[  566272ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[  609194ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[  609205ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[  611200ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[  611219ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[  816846ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:21550
+[  817091ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:21550
+[  817128ms] ReferenceError: MetricCard is not defined
+    at App (http://localhost:5173/src/App.jsx?t=1775992933891:191:13)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:11548:26)
+    at mountIndeterminateComponent (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:14926:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:3699:24)
+    at invokeGuardedCallback (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:3733:39)
+    at beginWork$1 (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:19765:15)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:19198:20)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:19137:13)
+[  817129ms] ReferenceError: MetricCard is not defined
+    at App (http://localhost:5173/src/App.jsx?t=1775992933891:191:13)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:11548:26)
+    at mountIndeterminateComponent (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:14926:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:3699:24)
+    at invokeGuardedCallback (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:3733:39)
+    at beginWork$1 (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:19765:15)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:19198:20)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:19137:13)
+[  817130ms] [ERROR] The above error occurred in the <App> component:
+
+    at App (http://localhost:5173/src/App.jsx?t=1775992933891:61:73)
+    at ThemeProvider (http://localhost:5173/src/context/ThemeContext.jsx:20:33)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:14031
+[  817130ms] ReferenceError: MetricCard is not defined
+    at App (http://localhost:5173/src/App.jsx?t=1775992933891:191:13)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:11548:26)
+    at mountIndeterminateComponent (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:14926:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:15914:22)
+    at beginWork$1 (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:19753:22)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:19198:20)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:19137:13)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:19116:15)
+    at recoverFromConcurrentError (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:18736:28)
+    at performConcurrentWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:18684:30)
+[  853272ms] [WARNING] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: WebSocket is closed before the connection is established. @ http://localhost:5173/src/hooks/useSignalFeed.js:70
+[  853331ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[  853331ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[  853346ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[  855343ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42

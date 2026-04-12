@@ -1,0 +1,469 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e1255] [cursor=pointer]:
+      - generic [ref=e1256]:
+        - generic [ref=e1257]:
+          - text: "!! THREAT DETECTED !!"
+          - generic [ref=e1258]: "!! THREAT DETECTED !!"
+          - generic [ref=e1259]: "!! THREAT DETECTED !!"
+        - generic [ref=e1260]: "[sig_00225] FREQ 2598.04MHz · PSK · SCORE 100/100 · CONF 100%"
+      - generic [ref=e1261]: 6s
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - heading "RF Signal Analyzer" [level=1] [ref=e6]
+        - paragraph [ref=e7]: Synthetic Signal Intelligence Dashboard
+      - generic [ref=e8]:
+        - generic [ref=e9]: 4 sig/s
+        - generic "Connected" [ref=e10]
+        - generic [ref=e11]: Live
+        - generic [ref=e12]:
+          - button "Peacekeeping" [ref=e13] [cursor=pointer]
+          - button "Border Patrol" [ref=e14] [cursor=pointer]
+          - button "Active Conflict" [ref=e15] [cursor=pointer]
+    - main [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - paragraph [ref=e20]: Total Signals
+          - paragraph [ref=e21]: "316"
+        - generic [ref=e22]:
+          - paragraph [ref=e23]: Current Threat Score
+          - paragraph [ref=e24]: "100"
+        - generic [ref=e25]:
+          - paragraph [ref=e26]: Avg Confidence
+          - paragraph [ref=e27]: "1.00"
+      - generic [ref=e28]:
+        - paragraph [ref=e29]: Spectrum Waterfall — 100–4200 MHz
+        - generic [ref=e30]:
+          - generic:
+            - generic: ■ Friendly
+            - generic: ■ Unknown
+            - generic: ■ Hostile
+          - generic: ▼ TIME
+      - generic [ref=e32]:
+        - generic [ref=e34]:
+          - heading "Signal Feed" [level=2] [ref=e36]
+          - table [ref=e40]:
+            - rowgroup [ref=e41]:
+              - row "Time Freq (MHz) Power (dBm) Mod Label Conf Threat" [ref=e42]:
+                - columnheader "Time" [ref=e43]
+                - columnheader "Freq (MHz)" [ref=e44]
+                - columnheader "Power (dBm)" [ref=e45]
+                - columnheader "Mod" [ref=e46]
+                - columnheader "Label" [ref=e47]
+                - columnheader "Conf" [ref=e48]
+                - columnheader "Threat" [ref=e49]
+            - rowgroup [ref=e50]:
+              - row "16:40:03 2598.04 -45.4 PSK HOSTILE 100% 100" [ref=e1262]:
+                - cell "16:40:03" [ref=e1263]
+                - cell "2598.04" [ref=e1264]
+                - cell "-45.4" [ref=e1265]
+                - cell "PSK" [ref=e1266]
+                - cell "HOSTILE" [ref=e1267]:
+                  - generic [ref=e1268]: HOSTILE
+                - cell "100%" [ref=e1269]
+                - cell "100" [ref=e1270]:
+                  - generic [ref=e1271]:
+                    - generic [ref=e1272]: "100"
+                    - progressbar [ref=e1273]
+              - row "16:40:03 170.46 -82.0 FM FRIENDLY 100% 20" [ref=e1275]:
+                - cell "16:40:03" [ref=e1276]
+                - cell "170.46" [ref=e1277]
+                - cell "-82.0" [ref=e1278]
+                - cell "FM" [ref=e1279]
+                - cell "FRIENDLY" [ref=e1280]:
+                  - generic [ref=e1281]: FRIENDLY
+                - cell "100%" [ref=e1282]
+                - cell "20" [ref=e1283]:
+                  - generic [ref=e1284]:
+                    - generic [ref=e1285]: "20"
+                    - progressbar [ref=e1286]
+              - row "16:40:02 347.38 -66.6 FM UNKNOWN 100% 20" [ref=e1288]:
+                - cell "16:40:02" [ref=e1289]
+                - cell "347.38" [ref=e1290]
+                - cell "-66.6" [ref=e1291]
+                - cell "FM" [ref=e1292]
+                - cell "UNKNOWN" [ref=e1293]:
+                  - generic [ref=e1294]: UNKNOWN
+                - cell "100%" [ref=e1295]
+                - cell "20" [ref=e1296]:
+                  - generic [ref=e1297]:
+                    - generic [ref=e1298]: "20"
+                    - progressbar [ref=e1299]
+              - row "16:40:02 388.01 -51.5 FM UNKNOWN 100% 20" [ref=e1301]:
+                - cell "16:40:02" [ref=e1302]
+                - cell "388.01" [ref=e1303]
+                - cell "-51.5" [ref=e1304]
+                - cell "FM" [ref=e1305]
+                - cell "UNKNOWN" [ref=e1306]:
+                  - generic [ref=e1307]: UNKNOWN
+                - cell "100%" [ref=e1308]
+                - cell "20" [ref=e1309]:
+                  - generic [ref=e1310]:
+                    - generic [ref=e1311]: "20"
+                    - progressbar [ref=e1312]
+              - row "16:40:01 307.73 -62.3 QAM UNKNOWN 100% 20" [ref=e1314]:
+                - cell "16:40:01" [ref=e1315]
+                - cell "307.73" [ref=e1316]
+                - cell "-62.3" [ref=e1317]
+                - cell "QAM" [ref=e1318]
+                - cell "UNKNOWN" [ref=e1319]:
+                  - generic [ref=e1320]: UNKNOWN
+                - cell "100%" [ref=e1321]
+                - cell "20" [ref=e1322]:
+                  - generic [ref=e1323]:
+                    - generic [ref=e1324]: "20"
+                    - progressbar [ref=e1325]
+              - row "16:40:01 135.40 -74.2 AM FRIENDLY 100% 20" [ref=e1327]:
+                - cell "16:40:01" [ref=e1328]
+                - cell "135.40" [ref=e1329]
+                - cell "-74.2" [ref=e1330]
+                - cell "AM" [ref=e1331]
+                - cell "FRIENDLY" [ref=e1332]:
+                  - generic [ref=e1333]: FRIENDLY
+                - cell "100%" [ref=e1334]
+                - cell "20" [ref=e1335]:
+                  - generic [ref=e1336]:
+                    - generic [ref=e1337]: "20"
+                    - progressbar [ref=e1338]
+              - row "16:40:00 158.49 -71.5 FM FRIENDLY 100% 20" [ref=e1340]:
+                - cell "16:40:00" [ref=e1341]
+                - cell "158.49" [ref=e1342]
+                - cell "-71.5" [ref=e1343]
+                - cell "FM" [ref=e1344]
+                - cell "FRIENDLY" [ref=e1345]:
+                  - generic [ref=e1346]: FRIENDLY
+                - cell "100%" [ref=e1347]
+                - cell "20" [ref=e1348]:
+                  - generic [ref=e1349]:
+                    - generic [ref=e1350]: "20"
+                    - progressbar [ref=e1351]
+              - row "16:40:00 307.87 -65.9 AM UNKNOWN 100% 20" [ref=e1353]:
+                - cell "16:40:00" [ref=e1354]
+                - cell "307.87" [ref=e1355]
+                - cell "-65.9" [ref=e1356]
+                - cell "AM" [ref=e1357]
+                - cell "UNKNOWN" [ref=e1358]:
+                  - generic [ref=e1359]: UNKNOWN
+                - cell "100%" [ref=e1360]
+                - cell "20" [ref=e1361]:
+                  - generic [ref=e1362]:
+                    - generic [ref=e1363]: "20"
+                    - progressbar [ref=e1364]
+              - row "16:39:59 433.73 -66.0 AM UNKNOWN 100% 20" [ref=e1366]:
+                - cell "16:39:59" [ref=e1367]
+                - cell "433.73" [ref=e1368]
+                - cell "-66.0" [ref=e1369]
+                - cell "AM" [ref=e1370]
+                - cell "UNKNOWN" [ref=e1371]:
+                  - generic [ref=e1372]: UNKNOWN
+                - cell "100%" [ref=e1373]
+                - cell "20" [ref=e1374]:
+                  - generic [ref=e1375]:
+                    - generic [ref=e1376]: "20"
+                    - progressbar [ref=e1377]
+              - row "16:39:59 316.31 -49.1 AM UNKNOWN 100% 20" [ref=e1379]:
+                - cell "16:39:59" [ref=e1380]
+                - cell "316.31" [ref=e1381]
+                - cell "-49.1" [ref=e1382]
+                - cell "AM" [ref=e1383]
+                - cell "UNKNOWN" [ref=e1384]:
+                  - generic [ref=e1385]: UNKNOWN
+                - cell "100%" [ref=e1386]
+                - cell "20" [ref=e1387]:
+                  - generic [ref=e1388]:
+                    - generic [ref=e1389]: "20"
+                    - progressbar [ref=e1390]
+              - row "16:39:58 167.11 -75.0 AM FRIENDLY 100% 20" [ref=e1392]:
+                - cell "16:39:58" [ref=e1393]
+                - cell "167.11" [ref=e1394]
+                - cell "-75.0" [ref=e1395]
+                - cell "AM" [ref=e1396]
+                - cell "FRIENDLY" [ref=e1397]:
+                  - generic [ref=e1398]: FRIENDLY
+                - cell "100%" [ref=e1399]
+                - cell "20" [ref=e1400]:
+                  - generic [ref=e1401]:
+                    - generic [ref=e1402]: "20"
+                    - progressbar [ref=e1403]
+              - row "16:39:57 2386.60 -49.0 QAM HOSTILE 100% 100" [ref=e1405]:
+                - cell "16:39:57" [ref=e1406]
+                - cell "2386.60" [ref=e1407]
+                - cell "-49.0" [ref=e1408]
+                - cell "QAM" [ref=e1409]
+                - cell "HOSTILE" [ref=e1410]:
+                  - generic [ref=e1411]: HOSTILE
+                - cell "100%" [ref=e1412]
+                - cell "100" [ref=e1413]:
+                  - generic [ref=e1414]:
+                    - generic [ref=e1415]: "100"
+                    - progressbar [ref=e1416]
+              - row "16:39:57 472.76 -50.7 AM UNKNOWN 100% 20" [ref=e1418]:
+                - cell "16:39:57" [ref=e1419]
+                - cell "472.76" [ref=e1420]
+                - cell "-50.7" [ref=e1421]
+                - cell "AM" [ref=e1422]
+                - cell "UNKNOWN" [ref=e1423]:
+                  - generic [ref=e1424]: UNKNOWN
+                - cell "100%" [ref=e1425]
+                - cell "20" [ref=e1426]:
+                  - generic [ref=e1427]:
+                    - generic [ref=e1428]: "20"
+                    - progressbar [ref=e1429]
+              - row "16:39:56 159.55 -64.6 FM FRIENDLY 100% 20" [ref=e1431]:
+                - cell "16:39:56" [ref=e1432]
+                - cell "159.55" [ref=e1433]
+                - cell "-64.6" [ref=e1434]
+                - cell "FM" [ref=e1435]
+                - cell "FRIENDLY" [ref=e1436]:
+                  - generic [ref=e1437]: FRIENDLY
+                - cell "100%" [ref=e1438]
+                - cell "20" [ref=e1439]:
+                  - generic [ref=e1440]:
+                    - generic [ref=e1441]: "20"
+                    - progressbar [ref=e1442]
+              - row "16:39:56 2455.81 -44.1 PSK HOSTILE 100% 100" [ref=e1444]:
+                - cell "16:39:56" [ref=e1445]
+                - cell "2455.81" [ref=e1446]
+                - cell "-44.1" [ref=e1447]
+                - cell "PSK" [ref=e1448]
+                - cell "HOSTILE" [ref=e1449]:
+                  - generic [ref=e1450]: HOSTILE
+                - cell "100%" [ref=e1451]
+                - cell "100" [ref=e1452]:
+                  - generic [ref=e1453]:
+                    - generic [ref=e1454]: "100"
+                    - progressbar [ref=e1455]
+        - generic [ref=e172]:
+          - heading "Threat score — live" [level=2] [ref=e173]
+          - img [ref=e176]:
+            - generic [ref=e426]:
+              - generic [ref=e1471]: 16:39:48
+              - generic [ref=e1474]: 16:39:52
+              - generic [ref=e1477]: 16:39:55
+              - generic [ref=e1480]: 16:39:59
+              - generic [ref=e1483]: 16:40:03
+            - generic [ref=e181]:
+              - generic [ref=e183]: "0"
+              - generic [ref=e185]: "20"
+              - generic [ref=e187]: "40"
+              - generic [ref=e189]: "60"
+              - generic [ref=e191]: "80"
+              - generic [ref=e193]: "100"
+            - generic [ref=e195]: Alert threshold
+        - generic [ref=e197]:
+          - paragraph [ref=e198]: SIGNALS / RADAR
+          - img [ref=e199]:
+            - generic [ref=e209]: "10"
+            - generic [ref=e210]: "20"
+            - generic [ref=e211]: "30"
+            - generic [ref=e212]: "40"
+            - generic [ref=e220]: SCANNING
+            - generic [ref=e221]: 16:40:04
+      - generic [ref=e222]:
+        - generic [ref=e223]:
+          - generic [ref=e224]: "[ RAW SIGNAL INTERCEPT ]"
+          - generic [ref=e225]: ▊
+          - generic [ref=e226]: "UPTIME: 00:01:26"
+        - generic [ref=e227]:
+          - generic [ref=e1153]: "[16:39:30.983] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1154]: "[16:39:31.516] >> INTERCEPT #sig_00165 · FREQ 3082.65MHz · BW 307.9kHz"
+          - generic [ref=e1155]: "[16:39:31.516] EXECUTING CLASSIFIER... mod=PSK pwr=-40.6dBm"
+          - generic [ref=e1156]: "[16:39:31.516] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 100] <<<"
+          - generic [ref=e1157]: "[16:39:31.516] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1158]: "[16:39:32.047] >> INTERCEPT #sig_00166 · FREQ 175.67MHz · BW 16.1kHz"
+          - generic [ref=e1159]: "[16:39:32.047] EXECUTING CLASSIFIER... mod=AM pwr=-72.0dBm"
+          - generic [ref=e1160]: "[16:39:32.047] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1161]: "[16:39:32.578] >> INTERCEPT #sig_00167 · FREQ 144.91MHz · BW 20.7kHz"
+          - generic [ref=e1162]: "[16:39:32.578] EXECUTING CLASSIFIER... mod=AM pwr=-73.4dBm"
+          - generic [ref=e1163]: "[16:39:32.578] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1164]: "[16:39:33.107] >> INTERCEPT #sig_00168 · FREQ 156.89MHz · BW 14.7kHz"
+          - generic [ref=e1165]: "[16:39:33.107] EXECUTING CLASSIFIER... mod=AM pwr=-61.8dBm"
+          - generic [ref=e1166]: "[16:39:33.107] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1167]: "[16:39:33.638] >> INTERCEPT #sig_00169 · FREQ 3537.68MHz · BW 481.4kHz"
+          - generic [ref=e1168]: "[16:39:33.638] EXECUTING CLASSIFIER... mod=PSK pwr=-47.4dBm"
+          - generic [ref=e1169]: "[16:39:33.638] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 100] <<<"
+          - generic [ref=e1170]: "[16:39:33.638] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1171]: "[16:39:34.168] >> INTERCEPT #sig_00170 · FREQ 2595.16MHz · BW 147.7kHz"
+          - generic [ref=e1172]: "[16:39:34.168] EXECUTING CLASSIFIER... mod=QAM pwr=-48.4dBm"
+          - generic [ref=e1173]: "[16:39:34.168] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 100] <<<"
+          - generic [ref=e1174]: "[16:39:34.168] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1175]: "[16:39:34.697] >> INTERCEPT #sig_00171 · FREQ 437.02MHz · BW 69.6kHz"
+          - generic [ref=e1176]: "[16:39:34.697] EXECUTING CLASSIFIER... mod=PSK pwr=-51.1dBm"
+          - generic [ref=e1177]: "[16:39:34.697] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1178]: "[16:39:35.253] >> INTERCEPT #sig_00172 · FREQ 383.30MHz · BW 43.8kHz"
+          - generic [ref=e1179]: "[16:39:35.253] EXECUTING CLASSIFIER... mod=AM pwr=-69.8dBm"
+          - generic [ref=e1180]: "[16:39:35.253] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1181]: "[16:39:35.817] >> INTERCEPT #sig_00173 · FREQ 141.57MHz · BW 11.4kHz"
+          - generic [ref=e1182]: "[16:39:35.817] EXECUTING CLASSIFIER... mod=FM pwr=-58.5dBm"
+          - generic [ref=e1183]: "[16:39:35.817] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1184]: "[16:39:36.374] >> INTERCEPT #sig_00174 · FREQ 136.68MHz · BW 10.9kHz"
+          - generic [ref=e1185]: "[16:39:36.374] EXECUTING CLASSIFIER... mod=AM pwr=-59.6dBm"
+          - generic [ref=e1186]: "[16:39:36.374] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1187]: "[16:39:36.918] >> INTERCEPT #sig_00175 · FREQ 135.94MHz · BW 13.8kHz"
+          - generic [ref=e1188]: "[16:39:36.918] EXECUTING CLASSIFIER... mod=FM pwr=-60.6dBm"
+          - generic [ref=e1189]: "[16:39:36.918] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1190]: "[16:39:37.467] >> INTERCEPT #sig_00176 · FREQ 345.56MHz · BW 97.8kHz"
+          - generic [ref=e1191]: "[16:39:37.467] EXECUTING CLASSIFIER... mod=QAM pwr=-56.3dBm"
+          - generic [ref=e1192]: "[16:39:37.467] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1193]: "[16:39:38.002] >> INTERCEPT #sig_00177 · FREQ 360.43MHz · BW 90.5kHz"
+          - generic [ref=e1194]: "[16:39:38.002] EXECUTING CLASSIFIER... mod=PSK pwr=-67.4dBm"
+          - generic [ref=e1195]: "[16:39:38.002] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1196]: "[16:39:38.560] >> INTERCEPT #sig_00178 · FREQ 157.66MHz · BW 19.2kHz"
+          - generic [ref=e1197]: "[16:39:38.560] EXECUTING CLASSIFIER... mod=FM pwr=-68.8dBm"
+          - generic [ref=e1198]: "[16:39:38.560] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1199]: "[16:39:39.094] >> INTERCEPT #sig_00179 · FREQ 2541.55MHz · BW 279.6kHz"
+          - generic [ref=e1200]: "[16:39:39.094] EXECUTING CLASSIFIER... mod=PSK pwr=-52.5dBm"
+          - generic [ref=e1201]: "[16:39:39.094] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 70] <<<"
+          - generic [ref=e1202]: "[16:39:39.094] *** THREAT THRESHOLD MONITORED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1203]: "[16:39:39.625] >> INTERCEPT #sig_00180 · FREQ 142.44MHz · BW 18.0kHz"
+          - generic [ref=e1204]: "[16:39:39.625] EXECUTING CLASSIFIER... mod=AM pwr=-78.4dBm"
+          - generic [ref=e1205]: "[16:39:39.625] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1206]: "[16:39:40.156] >> INTERCEPT #sig_00181 · FREQ 140.57MHz · BW 21.6kHz"
+          - generic [ref=e1207]: "[16:39:40.156] EXECUTING CLASSIFIER... mod=FM pwr=-78.0dBm"
+          - generic [ref=e1208]: "[16:39:40.156] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1209]: "[16:39:40.717] >> INTERCEPT #sig_00182 · FREQ 2832.15MHz · BW 257.6kHz"
+          - generic [ref=e1210]: "[16:39:40.717] EXECUTING CLASSIFIER... mod=PSK pwr=-31.7dBm"
+          - generic [ref=e1211]: "[16:39:40.717] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 100] <<<"
+          - generic [ref=e1212]: "[16:39:40.717] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1213]: "[16:39:41.248] >> INTERCEPT #sig_00183 · FREQ 155.56MHz · BW 19.1kHz"
+          - generic [ref=e1214]: "[16:39:41.248] EXECUTING CLASSIFIER... mod=AM pwr=-66.4dBm"
+          - generic [ref=e1215]: "[16:39:41.248] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1216]: "[16:39:41.779] >> INTERCEPT #sig_00184 · FREQ 3668.83MHz · BW 256.3kHz"
+          - generic [ref=e1217]: "[16:39:41.779] EXECUTING CLASSIFIER... mod=QAM pwr=-42.8dBm"
+          - generic [ref=e1218]: "[16:39:41.779] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 100] <<<"
+          - generic [ref=e1219]: "[16:39:41.779] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1220]: "[16:39:42.312] >> INTERCEPT #sig_00185 · FREQ 2847.63MHz · BW 271.6kHz"
+          - generic [ref=e1221]: "[16:39:42.312] EXECUTING CLASSIFIER... mod=QAM pwr=-36.4dBm"
+          - generic [ref=e1222]: "[16:39:42.312] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 100] <<<"
+          - generic [ref=e1223]: "[16:39:42.312] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1224]: "[16:39:42.856] >> INTERCEPT #sig_00186 · FREQ 163.10MHz · BW 19.3kHz"
+          - generic [ref=e1225]: "[16:39:42.856] EXECUTING CLASSIFIER... mod=FM pwr=-72.7dBm"
+          - generic [ref=e1226]: "[16:39:42.856] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1227]: "[16:39:43.387] >> INTERCEPT #sig_00187 · FREQ 2057.16MHz · BW 123.7kHz"
+          - generic [ref=e1228]: "[16:39:43.387] EXECUTING CLASSIFIER... mod=PSK pwr=-45.3dBm"
+          - generic [ref=e1229]: "[16:39:43.387] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 100] <<<"
+          - generic [ref=e1230]: "[16:39:43.387] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1231]: "[16:39:43.918] >> INTERCEPT #sig_00188 · FREQ 155.50MHz · BW 27.9kHz"
+          - generic [ref=e1232]: "[16:39:43.918] EXECUTING CLASSIFIER... mod=FM pwr=-62.4dBm"
+          - generic [ref=e1233]: "[16:39:43.918] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1234]: "[16:39:44.450] >> INTERCEPT #sig_00189 · FREQ 145.22MHz · BW 10.9kHz"
+          - generic [ref=e1235]: "[16:39:44.450] EXECUTING CLASSIFIER... mod=FM pwr=-67.3dBm"
+          - generic [ref=e1236]: "[16:39:44.450] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1237]: "[16:39:44.978] >> INTERCEPT #sig_00190 · FREQ 155.59MHz · BW 12.9kHz"
+          - generic [ref=e1238]: "[16:39:44.978] EXECUTING CLASSIFIER... mod=AM pwr=-71.2dBm"
+          - generic [ref=e1239]: "[16:39:44.978] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1240]: "[16:39:45.526] >> INTERCEPT #sig_00191 · FREQ 3687.52MHz · BW 258.0kHz"
+          - generic [ref=e1241]: "[16:39:45.526] EXECUTING CLASSIFIER... mod=PSK pwr=-48.4dBm"
+          - generic [ref=e1242]: "[16:39:45.526] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 100] <<<"
+          - generic [ref=e1243]: "[16:39:45.526] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1244]: "[16:39:46.055] >> INTERCEPT #sig_00192 · FREQ 352.97MHz · BW 54.8kHz"
+          - generic [ref=e1245]: "[16:39:46.055] EXECUTING CLASSIFIER... mod=FM pwr=-66.5dBm"
+          - generic [ref=e1246]: "[16:39:46.055] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1247]: "[16:39:46.586] >> INTERCEPT #sig_00193 · FREQ 352.48MHz · BW 53.9kHz"
+          - generic [ref=e1248]: "[16:39:46.586] EXECUTING CLASSIFIER... mod=FM pwr=-68.2dBm"
+          - generic [ref=e1249]: "[16:39:46.586] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1250]: "[16:39:47.144] >> INTERCEPT #sig_00194 · FREQ 137.54MHz · BW 21.0kHz"
+          - generic [ref=e1251]: "[16:39:47.144] EXECUTING CLASSIFIER... mod=FM pwr=-60.7dBm"
+          - generic [ref=e1252]: "[16:39:47.144] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1253]: "[16:39:47.700] >> INTERCEPT #sig_00195 · FREQ 153.75MHz · BW 29.4kHz"
+          - generic [ref=e1254]: "[16:39:47.700] EXECUTING CLASSIFIER... mod=FM pwr=-64.3dBm"
+          - generic [ref=e1508]: "[16:39:47.700] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1509]: "[16:39:48.257] >> INTERCEPT #sig_00196 · FREQ 2900.80MHz · BW 154.6kHz"
+          - generic [ref=e1510]: "[16:39:48.257] EXECUTING CLASSIFIER... mod=QAM pwr=-30.2dBm"
+          - generic [ref=e1511]: "[16:39:48.257] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 100] <<<"
+          - generic [ref=e1512]: "[16:39:48.257] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1513]: "[16:39:48.788] >> INTERCEPT #sig_00197 · FREQ 161.52MHz · BW 27.3kHz"
+          - generic [ref=e1514]: "[16:39:48.788] EXECUTING CLASSIFIER... mod=FM pwr=-76.6dBm"
+          - generic [ref=e1515]: "[16:39:48.788] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1516]: "[16:39:49.318] >> INTERCEPT #sig_00198 · FREQ 170.13MHz · BW 24.0kHz"
+          - generic [ref=e1517]: "[16:39:49.318] EXECUTING CLASSIFIER... mod=FM pwr=-65.0dBm"
+          - generic [ref=e1518]: "[16:39:49.318] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1519]: "[16:39:49.852] >> INTERCEPT #sig_00199 · FREQ 3860.99MHz · BW 272.0kHz"
+          - generic [ref=e1520]: "[16:39:49.852] EXECUTING CLASSIFIER... mod=PSK pwr=-52.2dBm"
+          - generic [ref=e1521]: "[16:39:49.852] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 70] <<<"
+          - generic [ref=e1522]: "[16:39:49.852] *** THREAT THRESHOLD MONITORED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1523]: "[16:39:50.383] >> INTERCEPT #sig_00200 · FREQ 144.94MHz · BW 22.7kHz"
+          - generic [ref=e1524]: "[16:39:50.383] EXECUTING CLASSIFIER... mod=FM pwr=-62.9dBm"
+          - generic [ref=e1525]: "[16:39:50.383] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1526]: "[16:39:50.928] >> INTERCEPT #sig_00201 · FREQ 142.08MHz · BW 22.6kHz"
+          - generic [ref=e1527]: "[16:39:50.928] EXECUTING CLASSIFIER... mod=FM pwr=-64.6dBm"
+          - generic [ref=e1528]: "[16:39:50.928] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1529]: "[16:39:51.474] >> INTERCEPT #sig_00202 · FREQ 156.14MHz · BW 26.0kHz"
+          - generic [ref=e1530]: "[16:39:51.474] EXECUTING CLASSIFIER... mod=AM pwr=-76.5dBm"
+          - generic [ref=e1531]: "[16:39:51.474] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1532]: "[16:39:52.018] >> INTERCEPT #sig_00203 · FREQ 488.11MHz · BW 77.4kHz"
+          - generic [ref=e1533]: "[16:39:52.018] EXECUTING CLASSIFIER... mod=AM pwr=-63.6dBm"
+          - generic [ref=e1534]: "[16:39:52.018] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1535]: "[16:39:52.564] >> INTERCEPT #sig_00204 · FREQ 3939.25MHz · BW 433.6kHz"
+          - generic [ref=e1536]: "[16:39:52.564] EXECUTING CLASSIFIER... mod=QAM pwr=-45.6dBm"
+          - generic [ref=e1537]: "[16:39:52.564] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 100] <<<"
+          - generic [ref=e1538]: "[16:39:52.564] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1539]: "[16:39:53.095] >> INTERCEPT #sig_00205 · FREQ 2687.99MHz · BW 221.3kHz"
+          - generic [ref=e1540]: "[16:39:53.095] EXECUTING CLASSIFIER... mod=PSK pwr=-44.1dBm"
+          - generic [ref=e1541]: "[16:39:53.095] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 100] <<<"
+          - generic [ref=e1542]: "[16:39:53.095] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1543]: "[16:39:53.641] >> INTERCEPT #sig_00206 · FREQ 422.53MHz · BW 51.1kHz"
+          - generic [ref=e1544]: "[16:39:53.641] EXECUTING CLASSIFIER... mod=AM pwr=-60.5dBm"
+          - generic [ref=e1545]: "[16:39:53.641] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1546]: "[16:39:54.172] >> INTERCEPT #sig_00207 · FREQ 165.88MHz · BW 15.5kHz"
+          - generic [ref=e1547]: "[16:39:54.172] EXECUTING CLASSIFIER... mod=FM pwr=-74.8dBm"
+          - generic [ref=e1548]: "[16:39:54.172] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1549]: "[16:39:54.719] >> INTERCEPT #sig_00208 · FREQ 147.29MHz · BW 11.2kHz"
+          - generic [ref=e1550]: "[16:39:54.719] EXECUTING CLASSIFIER... mod=FM pwr=-67.0dBm"
+          - generic [ref=e1551]: "[16:39:54.719] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1552]: "[16:39:55.267] >> INTERCEPT #sig_00209 · FREQ 158.60MHz · BW 12.0kHz"
+          - generic [ref=e1553]: "[16:39:55.267] EXECUTING CLASSIFIER... mod=FM pwr=-72.7dBm"
+          - generic [ref=e1554]: "[16:39:55.267] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1555]: "[16:39:55.815] >> INTERCEPT #sig_00210 · FREQ 139.95MHz · BW 22.7kHz"
+          - generic [ref=e1556]: "[16:39:55.815] EXECUTING CLASSIFIER... mod=AM pwr=-64.0dBm"
+          - generic [ref=e1557]: "[16:39:55.815] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1558]: "[16:39:56.361] >> INTERCEPT #sig_00211 · FREQ 2455.81MHz · BW 346.6kHz"
+          - generic [ref=e1559]: "[16:39:56.361] EXECUTING CLASSIFIER... mod=PSK pwr=-44.1dBm"
+          - generic [ref=e1560]: "[16:39:56.361] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 100] <<<"
+          - generic [ref=e1561]: "[16:39:56.361] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1562]: "[16:39:56.891] >> INTERCEPT #sig_00212 · FREQ 159.55MHz · BW 16.2kHz"
+          - generic [ref=e1563]: "[16:39:56.891] EXECUTING CLASSIFIER... mod=FM pwr=-64.6dBm"
+          - generic [ref=e1564]: "[16:39:56.891] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1565]: "[16:39:57.421] >> INTERCEPT #sig_00213 · FREQ 472.76MHz · BW 47.3kHz"
+          - generic [ref=e1566]: "[16:39:57.421] EXECUTING CLASSIFIER... mod=AM pwr=-50.7dBm"
+          - generic [ref=e1567]: "[16:39:57.421] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1568]: "[16:39:57.952] >> INTERCEPT #sig_00214 · FREQ 2386.60MHz · BW 145.1kHz"
+          - generic [ref=e1569]: "[16:39:57.952] EXECUTING CLASSIFIER... mod=QAM pwr=-49.0dBm"
+          - generic [ref=e1570]: "[16:39:57.952] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF: FAIL] [SCORE: 100] <<<"
+          - generic [ref=e1571]: "[16:39:57.952] *** THREAT THRESHOLD EXCEEDED · OPERATOR NOTIFIED ***"
+          - generic [ref=e1572]: "[16:39:58.484] >> INTERCEPT #sig_00215 · FREQ 167.11MHz · BW 20.5kHz"
+          - generic [ref=e1573]: "[16:39:58.484] EXECUTING CLASSIFIER... mod=AM pwr=-75.0dBm"
+          - generic [ref=e1574]: "[16:39:58.484] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1575]: "[16:39:59.014] >> INTERCEPT #sig_00216 · FREQ 316.31MHz · BW 76.1kHz"
+          - generic [ref=e1576]: "[16:39:59.014] EXECUTING CLASSIFIER... mod=AM pwr=-49.1dBm"
+          - generic [ref=e1577]: "[16:39:59.014] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1578]: "[16:39:59.547] >> INTERCEPT #sig_00217 · FREQ 433.73MHz · BW 41.0kHz"
+          - generic [ref=e1579]: "[16:39:59.547] EXECUTING CLASSIFIER... mod=AM pwr=-66.0dBm"
+          - generic [ref=e1580]: "[16:39:59.547] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1581]: "[16:40:00.094] >> INTERCEPT #sig_00218 · FREQ 307.87MHz · BW 31.1kHz"
+          - generic [ref=e1582]: "[16:40:00.094] EXECUTING CLASSIFIER... mod=AM pwr=-65.9dBm"
+          - generic [ref=e1583]: "[16:40:00.094] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1584]: "[16:40:00.639] >> INTERCEPT #sig_00219 · FREQ 158.49MHz · BW 27.3kHz"
+          - generic [ref=e1585]: "[16:40:00.639] EXECUTING CLASSIFIER... mod=FM pwr=-71.5dBm"
+          - generic [ref=e1586]: "[16:40:00.639] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1587]: "[16:40:01.198] >> INTERCEPT #sig_00220 · FREQ 135.40MHz · BW 14.1kHz"
+          - generic [ref=e1588]: "[16:40:01.198] EXECUTING CLASSIFIER... mod=AM pwr=-74.2dBm"
+          - generic [ref=e1589]: "[16:40:01.198] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1590]: "[16:40:01.753] >> INTERCEPT #sig_00221 · FREQ 307.73MHz · BW 96.3kHz"
+          - generic [ref=e1591]: "[16:40:01.753] EXECUTING CLASSIFIER... mod=QAM pwr=-62.3dBm"
+          - generic [ref=e1592]: "[16:40:01.753] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1593]: "[16:40:02.284] >> INTERCEPT #sig_00222 · FREQ 388.01MHz · BW 78.7kHz"
+          - generic [ref=e1594]: "[16:40:02.284] EXECUTING CLASSIFIER... mod=FM pwr=-51.5dBm"
+          - generic [ref=e1595]: "[16:40:02.284] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1596]: "[16:40:02.813] >> INTERCEPT #sig_00223 · FREQ 347.38MHz · BW 65.6kHz"
+          - generic [ref=e1597]: "[16:40:02.813] EXECUTING CLASSIFIER... mod=FM pwr=-66.6dBm"
+          - generic [ref=e1598]: "[16:40:02.813] >> RESULT: UNKNOWN [CONF: 100%] [IFF: NONE] [SCORE: 20]"
+          - generic [ref=e1599]: "[16:40:03.344] >> INTERCEPT #sig_00224 · FREQ 170.46MHz · BW 25.4kHz"
+          - generic [ref=e1600]: "[16:40:03.344] EXECUTING CLASSIFIER... mod=FM pwr=-82.0dBm"
+          - generic [ref=e1601]: "[16:40:03.344] >> RESULT: FRIENDLY [CONF: 100%] [IFF: VERIFIED] [SCORE: 20]"
+          - generic [ref=e1602]: "[16:40:03.901] >> INTERCEPT #sig_00225 · FREQ 2598.04MHz · BW 317.7kHz"
+          - generic [ref=e1603]: "[16:40:03.901] EXECUTING CLASSIFIER... mod=PSK pwr=-45.4dBm"
+          - generic [ref=e1604]: "[16:40:03.901] >> RESULT: !! HOSTILE !! [CONF: 100%] [IFF:▊"
+          - generic [ref=e1605]: "[16:40:03.901] *** THREAT THRESHOLD▊"
+        - generic [ref=e228]: "SIGNALS PROCESSED: 160 · THREATS: 43 · !! ELEVATED !!"
+  - generic [ref=e229]: 16:40:03

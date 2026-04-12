@@ -6,3 +6,10 @@ __pycache__/
 *.pyc
 venv/
 .DS_Store
+
+# RF Analyzer specific
+rf-analyzer/backend/model.pkl
+rf-analyzer/backend/__pycache__/
+rf-analyzer/frontend/node_modules/
+rf-analyzer/frontend/dist/
+

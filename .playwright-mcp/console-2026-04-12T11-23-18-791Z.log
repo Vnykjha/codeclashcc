@@ -1,0 +1,15 @@
+[      99ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=da55e6c5:21550
+[     162ms] [WARNING] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: WebSocket is closed before the connection is established. @ http://localhost:5173/src/hooks/useSignalFeed.js:70
+[     206ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[     206ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[     239ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[    2226ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[  364788ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=2a8f304b:21550
+[  364843ms] [WARNING] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: WebSocket is closed before the connection is established. @ http://localhost:5173/src/hooks/useSignalFeed.js:70
+[  364850ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[  364851ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[  364878ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[  366858ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[  418150ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[  418175ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[  420164ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42

@@ -7,12 +7,14 @@ const SCENARIOS = [
   { value: 'active_conflict', label: 'ACTIVE CONFLICT' },
 ]
 
+const API_BASE = import.meta.env.VITE_API_URL || '';
+
 export default function ScenarioSwitcher() {
   const [active,    setActive]    = useState(null)
   const [switching, setSwitching] = useState(false)
 
   useEffect(() => {
-    fetch('/api/scenario')
+    fetch(`${API_BASE}/api/scenario`)
       .then(r => r.json())
       .then(d => setActive(d.scenario))
       .catch(() => setActive('active_conflict'))
@@ -22,7 +24,7 @@ export default function ScenarioSwitcher() {
     if (value === active || switching) return
     setSwitching(true)
     try {
-      const res = await fetch('/api/scenario', {
+      const res = await fetch(`${API_BASE}/api/scenario`, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({ name: value }),

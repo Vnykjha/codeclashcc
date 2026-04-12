@@ -2,16 +2,24 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 
 const MAX_SIGNALS = 50
 
-// Works in all environments:
-// - Local dev: proxied through Vite to localhost:8000
-// - Docker local: proxied through Nginx to backend:8000
-// - Railway prod: proxied through Nginx to backend Railway URL
-const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:'
-const WS_URL = `${protocol}//${window.location.host}/ws/signals`
+// Backend URL configuration
+const API_URL = import.meta.env.VITE_API_URL || '';
 
 function getWsUrl() {
-  return WS_URL
+  // If we have a specific VITE_API_URL, use it to construct the WebSocket URL
+  if (API_URL) {
+    const url = new URL(API_URL);
+    const wsProtocol = url.protocol === 'https:' ? 'wss:' : 'ws:';
+    return `${wsProtocol}//${url.host}/ws/signals`;
+  }
+  
+  // Default to window.location (local dev/Docker proxying)
+  const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+  return `${protocol}//${window.location.host}/ws/signals`;
 }
+
+const WS_URL = getWsUrl();
+
 
 export default function useSignalFeed() {
   const [signals,    setSignals]    = useState([])

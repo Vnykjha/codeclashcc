@@ -1,0 +1,153 @@
+[     263ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=67911b9c:21550
+[     460ms] [WARNING] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: WebSocket is closed before the connection is established. @ http://localhost:5173/src/hooks/useSignalFeed.js:70
+[     483ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5173/api/scenario:0
+[     485ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[     486ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[     486ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5173/api/scenario:0
+[     547ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[     548ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/favicon.ico:0
+[     548ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[     548ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[    2496ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[    2496ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[    2496ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[    2551ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[    2551ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[    2551ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[    4500ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[    4500ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[    4501ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[    4560ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[    4560ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[    4560ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[    6506ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[    6506ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[    6506ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[    6570ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[    6570ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[    6570ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[    8513ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[    8513ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[    8513ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[    8578ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[    8578ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[    8578ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   10520ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   10520ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   10520ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   10582ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   10582ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   10582ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   12534ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   12534ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   12534ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   12599ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   12599ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   12599ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   14556ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   14556ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   14557ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   14618ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   14618ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   14618ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   16580ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   16580ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   16580ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   16636ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   16636ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   16636ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   18608ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   18608ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   18608ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   18660ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   18660ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   18660ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   20759ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   20759ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   20759ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   20825ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   20825ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   20825ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   22950ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   22951ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   22951ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   23019ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   23019ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   23019ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   25330ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   25330ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   25330ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   25931ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   25931ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   25931ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   27857ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   27857ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   27858ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   28789ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   28790ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   28790ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   30620ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   30620ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   30620ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   32381ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   32381ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   32381ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   33794ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   33794ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   33794ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   35667ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   35667ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   35667ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   38684ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   38684ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   38684ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   40254ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   40254ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   40254ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   45367ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   45367ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   45367ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   47012ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   47012ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   47012ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   50540ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   50540ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   50540ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   53696ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   53696ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   53696ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   56935ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   56935ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   56935ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   59147ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   59147ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   59147ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   63233ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   63233ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   63234ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   63261ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   63261ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   63261ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   66525ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   66525ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   66525ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   68996ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   68996ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   68997ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   71273ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   71273ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   71274ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   74674ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   74674ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   74674ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   77526ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/hooks/useSignalFeed.js:38
+[   77526ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[   77526ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[   79057ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[   83407ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[  104618ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-PJEEZAML.js?v=67911b9c:21550
+[  104652ms] [WARNING] WebSocket connection to 'ws://localhost:5173/ws/signals' failed: WebSocket is closed before the connection is established. @ http://localhost:5173/src/hooks/useSignalFeed.js:70
+[  104674ms] [WARNING] [RF] WebSocket error Event @ http://localhost:5173/src/hooks/useSignalFeed.js:53
+[  104675ms] [LOG] [RF] WebSocket disconnected — reconnecting in 2s... @ http://localhost:5173/src/hooks/useSignalFeed.js:47
+[  105122ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
+[  106696ms] [LOG] [RF] WebSocket connected to ws://localhost:5173/ws/signals @ http://localhost:5173/src/hooks/useSignalFeed.js:42
