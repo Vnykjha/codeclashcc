@@ -23,33 +23,27 @@ export default function AlertOverlay() {
   if (!alertActive || !alertSignal) return null
 
   const s = alertSignal
+  const shortId = s.id.toString().slice(-4)
 
   return (
     <div
       onClick={clearAlert}
+      className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0"
       style={{
         position: 'sticky',
         top: 0,
         zIndex: 50,
         width: '100%',
         background: 'linear-gradient(90deg, #7f0000, #cc0000, #7f0000)',
-        padding: '12px 24px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
+        padding: '10px 16px',
         cursor: 'pointer',
         userSelect: 'none',
       }}
     >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+      <div className="flex flex-col gap-1 sm:gap-2 flex-1">
         {/* Glitch title */}
         <div style={{ position: 'relative', overflow: 'hidden', display: 'inline-block' }}>
-          <span style={{
-            color: 'white',
-            fontWeight: 'bold',
-            fontSize: '1.1rem',
-            letterSpacing: '0.12em',
-          }}>
+          <span className="text-sm sm:text-lg font-bold tracking-wider" style={{ color: 'white' }}>
             !! THREAT DETECTED !!
           </span>
           <span style={{
@@ -58,7 +52,7 @@ export default function AlertOverlay() {
             left: 0,
             color: 'white',
             fontWeight: 'bold',
-            fontSize: '1.1rem',
+            fontSize: 'inherit',
             letterSpacing: '0.12em',
             animation: 'glitch-1 0.9s steps(2) infinite',
           }}>
@@ -70,7 +64,7 @@ export default function AlertOverlay() {
             left: 0,
             color: 'white',
             fontWeight: 'bold',
-            fontSize: '1.1rem',
+            fontSize: 'inherit',
             letterSpacing: '0.12em',
             animation: 'glitch-2 0.7s steps(2) infinite 0.12s',
           }}>
@@ -79,27 +73,21 @@ export default function AlertOverlay() {
         </div>
 
         {/* Signal details */}
-        <span style={{
-          fontFamily: 'monospace',
-          fontSize: '0.72rem',
-          color: 'rgba(255,255,255,0.88)',
-          letterSpacing: '0.04em',
-        }}>
-          [{s.id}] FREQ {s.frequency_mhz.toFixed(2)}MHz · {s.modulation} · SCORE {s.threat_score}/100 · CONF {Math.round(s.confidence * 100)}%
+        <span className="font-mono text-[11px] sm:text-xs text-white/90 tracking-wide">
+          <span className="hidden sm:inline">[{s.id}]</span>
+          <span className="inline sm:hidden">#{shortId}</span>
+          {' · '}FREQ {s.frequency_mhz.toFixed(0)}<span className="hidden sm:inline">.{(s.frequency_mhz % 1).toFixed(2).slice(2)}</span>MHz
+          {' · '}{s.modulation}
+          {' · '}SCORE {s.threat_score}
+          {' · '}{Math.round(s.confidence * 100)}%
         </span>
+
+        {/* Mobile tap hint */}
+        <span className="sm:hidden text-[9px] text-white/60 italic">tap to dismiss</span>
       </div>
 
       {/* Countdown */}
-      <div style={{
-        fontFamily: 'monospace',
-        fontSize: '1.75rem',
-        fontWeight: 'bold',
-        color: 'rgba(255,255,255,0.9)',
-        marginLeft: '24px',
-        flexShrink: 0,
-        minWidth: '2.5ch',
-        textAlign: 'right',
-      }}>
+      <div className="font-mono text-2xl sm:text-3xl font-bold text-white/90 ml-auto sm:ml-6 shrink-0 min-w-[2.5ch] text-right">
         {countdown}s
       </div>
     </div>

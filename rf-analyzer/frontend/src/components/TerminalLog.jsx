@@ -216,7 +216,7 @@ export default function TerminalLog({ signals = [] }) {
           [ RAW SIGNAL INTERCEPT ]
         </span>
         <span className="cursor" style={{ color: '#00ff41', marginLeft: '3px' }}>▊</span>
-        <span style={{
+        <span className="hidden sm:block" style={{
           position:      'absolute',
           right:         '12px',
           color:         '#00ff41',
@@ -251,7 +251,7 @@ export default function TerminalLog({ signals = [] }) {
       </div>
 
       {/* ── Status bar ── */}
-      <div style={{
+      <div className="flex flex-wrap gap-x-2 gap-y-1" style={{
         borderTop:     '1px solid rgba(0,255,65,0.3)',
         padding:       '4px 12px',
         fontSize:      '10px',
@@ -259,7 +259,11 @@ export default function TerminalLog({ signals = [] }) {
         flexShrink:    0,
         letterSpacing: '0.06em',
       }}>
-        {`SIGNALS PROCESSED: ${stats.total} · THREATS: ${stats.hostile} · ${elevated ? '!! ELEVATED !!' : 'NOMINAL'}`}
+        <span>SIGNALS PROCESSED: {stats.total}</span>
+        <span>·</span>
+        <span>THREATS: {stats.hostile}</span>
+        <span>·</span>
+        <span>{elevated ? '!! ELEVATED !!' : 'NOMINAL'}</span>
       </div>
     </div>
   )

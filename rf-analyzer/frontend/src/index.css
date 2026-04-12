@@ -52,9 +52,12 @@ body {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.glass-panel:hover {
-  border-color: rgba(0, 255, 65, 0.3);
-  box-shadow: 0 0 30px rgba(0,0,0,0.5), 0 0 15px rgba(0,255,65,0.08), inset 0 1px 0 rgba(255,255,255,0.05);
+/* Only apply hover effects on devices with hover capability (not touch) */
+@media (hover: hover) {
+  .glass-panel:hover {
+    border-color: rgba(0, 255, 65, 0.3);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5), 0 0 15px rgba(0,255,65,0.08), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
 }
 
 /* ── Neon glow text ── */
@@ -67,12 +70,16 @@ body {
 tr.feed-row {
   transition: all 0.1s ease;
 }
-tr.feed-row:hover {
-  filter: brightness(1.25);
+
+/* Only apply hover effects on devices with hover capability (not touch) */
+@media (hover: hover) {
+  tr.feed-row:hover {
+    filter: brightness(1.25);
+  }
+  tr.feed-row-friendly:hover { box-shadow: inset 3px 0 0 #00ffcc; }
+  tr.feed-row-unknown:hover  { box-shadow: inset 3px 0 0 #fbbf24; }
+  tr.feed-row-hostile:hover  { box-shadow: inset 3px 0 0 #ff2020; }
 }
-tr.feed-row-friendly:hover { box-shadow: inset 3px 0 0 #00ffcc; }
-tr.feed-row-unknown:hover  { box-shadow: inset 3px 0 0 #fbbf24; }
-tr.feed-row-hostile:hover  { box-shadow: inset 3px 0 0 #ff2020; }
 
 /* ── Keyframes ── */
 

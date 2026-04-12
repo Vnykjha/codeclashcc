@@ -3,6 +3,7 @@ import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid,
   Tooltip, ReferenceLine, ResponsiveContainer,
 } from 'recharts'
+import { useWindowSize } from '../hooks/useWindowSize'
 
 const NEON_RED = '#ff2020'
 
@@ -32,6 +33,9 @@ function CustomTooltip({ active, payload }) {
 }
 
 export default function ThreatChart({ signals }) {
+  const { width } = useWindowSize()
+  const isMobile = width < 640
+
   const data = useMemo(() =>
     signals
       .slice(0, 30)
@@ -43,13 +47,17 @@ export default function ThreatChart({ signals }) {
       }))
   , [signals])
 
+  // Show every 3rd timestamp on mobile to avoid overlap
+  const xAxisInterval = isMobile ? 2 : 'preserveStartEnd'
+  const chartHeight = isMobile ? 160 : 220
+
   return (
-    <div className="glass-panel rounded-lg p-4">
+    <div className="glass-panel rounded-lg p-4 h-full flex flex-col">
       <h2 className="text-sm font-semibold text-gray-200 mb-4 tracking-wide">
         Threat score — live
       </h2>
 
-      <ResponsiveContainer width="100%" height={260}>
+      <ResponsiveContainer width="100%" height={chartHeight}>
         <AreaChart data={data} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
           <defs>
             <linearGradient id="threatFill" x1="0" y1="0" x2="0" y2="1">
@@ -63,7 +71,7 @@ export default function ThreatChart({ signals }) {
           <XAxis
             dataKey="time"
             tick={TICK}
-            interval="preserveStartEnd"
+            interval={xAxisInterval}
             minTickGap={40}
           />
           <YAxis

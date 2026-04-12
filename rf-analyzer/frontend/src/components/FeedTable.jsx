@@ -94,7 +94,7 @@ export default function FeedTable({ signals }) {
             <TableRow className="border-0 hover:bg-transparent">
               <TableHead className={cn(HEAD_CLASS, "text-left")}>Time</TableHead>
               <TableHead className={cn(HEAD_CLASS, "text-right")}>Freq (MHz)</TableHead>
-              <TableHead className={cn(HEAD_CLASS, "text-right")}>Power (dBm)</TableHead>
+              <TableHead className={cn(HEAD_CLASS, "text-right hidden md:table-cell")}>Power (dBm)</TableHead>
               <TableHead className={cn(HEAD_CLASS, "text-center")}>Mod</TableHead>
               <TableHead className={cn(HEAD_CLASS, "text-center")}>Label</TableHead>
               <TableHead className={cn(HEAD_CLASS, "text-right")}>Conf</TableHead>
@@ -113,19 +113,19 @@ export default function FeedTable({ signals }) {
 
                   const cells = (
                     <>
-                      <TableCell className="px-3 py-1.5 font-mono text-gray-400 whitespace-nowrap">
+                      <TableCell className="px-3 py-2 min-h-[44px] lg:min-h-[28px] lg:py-1.5 font-mono text-gray-400 whitespace-nowrap">
                         {new Date(s.timestamp).toLocaleTimeString()}
                       </TableCell>
-                      <TableCell className="px-3 py-1.5 text-right font-mono text-gray-200">
+                      <TableCell className="px-3 py-2 min-h-[44px] lg:min-h-[28px] lg:py-1.5 text-right font-mono text-gray-200">
                         {s.frequency_mhz.toFixed(2)}
                       </TableCell>
-                      <TableCell className="px-3 py-1.5 text-right font-mono text-gray-200">
+                      <TableCell className="px-3 py-2 min-h-[44px] lg:min-h-[28px] lg:py-1.5 text-right font-mono text-gray-200 hidden md:table-cell">
                         {s.power_dbm.toFixed(1)}
                       </TableCell>
-                      <TableCell className="px-3 py-1.5 text-center font-mono text-gray-300">
+                      <TableCell className="px-3 py-2 min-h-[44px] lg:min-h-[28px] lg:py-1.5 text-center font-mono text-gray-300">
                         {s.modulation}
                       </TableCell>
-                      <TableCell className="px-3 py-1.5 text-center">
+                      <TableCell className="px-3 py-2 min-h-[44px] lg:min-h-[28px] lg:py-1.5 text-center">
                         <Badge
                           variant="outline"
                           className={cn(
@@ -136,10 +136,10 @@ export default function FeedTable({ signals }) {
                           {BADGE_LABEL[s.label]}
                         </Badge>
                       </TableCell>
-                      <TableCell className="px-3 py-1.5 text-right font-mono text-gray-300">
+                      <TableCell className="px-3 py-2 min-h-[44px] lg:min-h-[28px] lg:py-1.5 text-right font-mono text-gray-300">
                         {(s.confidence * 100).toFixed(0)}%
                       </TableCell>
-                      <TableCell className="px-3 py-1.5">
+                      <TableCell className="px-3 py-2 min-h-[44px] lg:min-h-[28px] lg:py-1.5">
                         <ThreatCell score={s.threat_score} />
                       </TableCell>
                     </>

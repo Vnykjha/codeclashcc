@@ -62,7 +62,7 @@ export default function App() {
       {/* ── Top bar ── */}
       <header className="sticky top-0 z-40">
         <Card
-          className="rounded-none border-0 h-14 flex items-center px-6 relative"
+          className="rounded-none border-0 h-auto min-h-14 flex flex-col sm:flex-row items-start sm:items-center px-4 sm:px-6 py-2 sm:py-0 gap-2 sm:gap-0 relative"
           style={{
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
@@ -71,24 +71,39 @@ export default function App() {
             boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
           }}
         >
-          {/* LEFT: title + subtitle */}
-          <div className="shrink-0">
-            <h1
-              className="text-xl font-bold tracking-tight glow-green"
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
-            >
-              RF Signal Analyzer
-            </h1>
-            <p className="text-xs text-gray-500 mt-0.5">Synthetic Signal Intelligence Dashboard</p>
+          {/* TOP ROW on mobile: title + live indicator */}
+          <div className="flex items-center justify-between w-full sm:w-auto">
+            {/* LEFT: title + subtitle */}
+            <div className="shrink-0">
+              <h1
+                className="text-lg sm:text-xl font-bold tracking-tight glow-green"
+                style={{ fontFamily: "'Share Tech Mono', monospace" }}
+              >
+                RF Signal Analyzer
+              </h1>
+              <p className="text-xs text-gray-500 mt-0.5 hidden sm:block">Synthetic Signal Intelligence Dashboard</p>
+            </div>
+
+            {/* RIGHT (mobile): live indicator */}
+            <div className="flex sm:hidden items-center gap-2 shrink-0">
+              <span
+                className={`w-2.5 h-2.5 rounded-full shrink-0 ${connected ? 'bg-green-400' : 'bg-red-500'}`}
+                style={connected ? { animation: 'dot-ring 1.4s ease-out infinite' } : {}}
+                title={connected ? 'Connected' : 'Disconnected'}
+              />
+              <span className={`text-xs font-mono ${connected ? 'text-green-400' : 'text-red-400'}`}>
+                {connected ? 'LIVE' : 'DISCONNECTED'}
+              </span>
+            </div>
           </div>
 
-          {/* CENTER: scenario switcher — absolutely centered */}
-          <div className="absolute left-1/2 -translate-x-1/2">
+          {/* CENTER: scenario switcher — absolutely centered on desktop, below title on mobile */}
+          <div className="sm:absolute sm:left-1/2 sm:-translate-x-1/2">
             <ScenarioSwitcher />
           </div>
 
-          {/* RIGHT: sig/s + separator + live indicator */}
-          <div className="ml-auto flex items-center gap-3 shrink-0">
+          {/* RIGHT (desktop): sig/s + separator + live indicator */}
+          <div className="hidden sm:flex ml-auto items-center gap-3 shrink-0">
             <span className="text-xs font-mono text-muted-foreground tabular-nums">
               {signalsPerSec} sig/s
             </span>
@@ -113,56 +128,57 @@ export default function App() {
 
         <main className="p-6 flex flex-col gap-5">
 
-          {/* Row 1: Metric bar — single 56px strip */}
-          <Card className="h-14 flex items-center border-border/40 bg-card/60 backdrop-blur-sm">
-            <CardContent className="flex items-center w-full h-full p-0 px-2">
-
-              <CardHeader className="flex-row items-center gap-3 p-0 px-4 space-y-0 flex-1">
+          {/* Row 1: Metric bar — grid on mobile, single strip on desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <Card className="h-auto sm:h-14 flex items-center border-border/40 bg-card/60 backdrop-blur-sm">
+              <CardContent className="flex items-center justify-between w-full h-full p-0 px-4 py-2 sm:py-0">
                 <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground whitespace-nowrap">
                   Total Signals
                 </p>
                 <CardTitle className="text-base font-mono font-bold leading-none text-foreground">
                   {animatedTotal.toLocaleString()}
                 </CardTitle>
-              </CardHeader>
+              </CardContent>
+            </Card>
 
-              <Separator orientation="vertical" className="h-6" />
-
-              <CardHeader className="flex-row items-center gap-3 p-0 px-4 space-y-0 flex-1">
+            <Card className="h-auto sm:h-14 flex items-center border-border/40 bg-card/60 backdrop-blur-sm">
+              <CardContent className="flex items-center justify-between w-full h-full p-0 px-4 py-2 sm:py-0">
                 <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground whitespace-nowrap">
                   Threat Score
                 </p>
                 <CardTitle className={`text-base font-mono font-bold leading-none ${isHighThreat ? 'text-destructive' : 'text-foreground'}`}>
                   {animatedThreat}
                 </CardTitle>
-              </CardHeader>
+              </CardContent>
+            </Card>
 
-              <Separator orientation="vertical" className="h-6" />
-
-              <CardHeader className="flex-row items-center gap-3 p-0 px-4 space-y-0 flex-1">
+            <Card className="h-auto sm:h-14 flex items-center border-border/40 bg-card/60 backdrop-blur-sm">
+              <CardContent className="flex items-center justify-between w-full h-full p-0 px-4 py-2 sm:py-0">
                 <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground whitespace-nowrap">
                   Avg Confidence
                 </p>
                 <CardTitle className="text-base font-mono font-bold leading-none text-foreground">
                   {avgConfDisplay}
                 </CardTitle>
-              </CardHeader>
-
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
 
           {/* Row 2: Spectrum waterfall — full width */}
           <SpectrogramCanvas signals={signals} />
 
-          {/* Row 3: FeedTable (flex-1) + ThreatChart (flex-1) + RadarWidget (300px) */}
-          <div className="flex gap-4 items-stretch h-[360px]">
-            <div className="flex-1 min-w-0">
-              <FeedTable signals={signals} />
-            </div>
-            <div className="flex-1 min-w-0">
+          {/* Row 3: FeedTable + ThreatChart + RadarWidget — stacked on mobile, side-by-side on desktop */}
+          <div className="flex flex-col lg:flex-row gap-4 items-stretch">
+            {/* Mobile order 1, Desktop order 1 */}
+            <div className="w-full lg:flex-1 min-w-0 h-[200px] lg:h-[360px]">
               <ThreatChart signals={signals} />
             </div>
-            <div className="flex-shrink-0">
+            {/* Mobile order 2, Desktop order 0 (move to left) */}
+            <div className="w-full lg:flex-1 lg:order-first min-w-0 h-[300px] lg:h-[360px]">
+              <FeedTable signals={signals} />
+            </div>
+            {/* Mobile order 3, Desktop order 2 */}
+            <div className="w-full max-w-[300px] mx-auto lg:mx-0 lg:flex-shrink-0 h-[300px] lg:h-[360px]">
               <RadarWidget signals={signals} />
             </div>
           </div>

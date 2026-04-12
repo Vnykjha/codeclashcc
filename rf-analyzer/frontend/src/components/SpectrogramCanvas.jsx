@@ -73,6 +73,8 @@ function drawSignalBlob(ctx, sig, width) {
  * Draw frequency axis labels as a permanent overlay at the bottom.
  * Called every tick AFTER clearing the bottom strip so scrolled ghosts
  * are never visible.
+ *
+ * On narrow canvases, use wider spacing and smaller font to prevent overlap.
  */
 function drawAxisLabels(ctx, width) {
   const top = CANVAS_H - LABEL_H
@@ -81,10 +83,14 @@ function drawAxisLabels(ctx, width) {
   ctx.fillStyle = 'rgba(0,0,0,0.85)'
   ctx.fillRect(0, top, width, LABEL_H)
 
-  ctx.font         = '10px monospace'
+  // Adjust label spacing and font size based on canvas width
+  const labelStep = width < 500 ? 1000 : 500  // MHz
+  const fontSize = width < 400 ? 8 : 10
+
+  ctx.font         = `${fontSize}px monospace`
   ctx.textBaseline = 'bottom'
 
-  for (let freq = 500; freq <= 4000; freq += 500) {
+  for (let freq = labelStep; freq <= 4000; freq += labelStep) {
     const x = Math.floor(freqToX(freq, width))
 
     // Tick line
