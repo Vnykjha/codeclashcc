@@ -13,10 +13,11 @@ export default function useSignalFeed() {
   const [connected,  setConnected]  = useState(false)
   const [totalSeen,  setTotalSeen]  = useState(0)
   const [signalsPerSec, setSignalsPerSec] = useState(0)
+  const [logs, setLogs] = useState([])
+  const [redAlert, setRedAlert] = useState(false)
 
   const wsRef        = useRef(null)
   const unmountedRef = useRef(false)
-  // Ring buffer of timestamps for the 1-second window
   const tsWindowRef  = useRef([])
 
   // Tick the signals/sec counter every 500ms
@@ -58,9 +59,16 @@ export default function useSignalFeed() {
       ws.onmessage = (e) => {
         const signal = JSON.parse(e.data)
         tsWindowRef.current.push(Date.now())
+        
         setThreatScore(signal.threat_score)
+        setRedAlert(signal.threat_score > 70)
         setTotalSeen(n => n + 1)
         setSignals(prev => [signal, ...prev].slice(0, MAX_SIGNALS))
+
+        // Create a dramatic terminal log entry
+        const time = new Date().toLocaleTimeString('en-GB')
+        const logLine = `[${time}] [FREQ ${signal.frequency_mhz.toFixed(2)}MHz] [PWR ${signal.power_dbm.toFixed(1)}dBm] [${signal.modulation}] >> CLASSIFYING... RESULT: ${signal.label.toUpperCase()}`
+        setLogs(prev => [logLine, ...prev].slice(0, 100))
       }
     }
 
@@ -72,5 +80,5 @@ export default function useSignalFeed() {
     }
   }, [])
 
-  return { signals, threatScore, connected, totalSeen, signalsPerSec }
+  return { signals, threatScore, connected, totalSeen, signalsPerSec, logs, redAlert }
 }

@@ -46,14 +46,14 @@ export default function FeedTable({ signals }) {
   const loading = rows.length === 0
 
   return (
-    <div className="bg-gray-900 rounded-lg overflow-hidden flex flex-col">
-      <div className="px-4 py-3 border-b border-gray-800 shrink-0">
-        <h2 className="text-sm font-semibold text-gray-300">Signal Feed</h2>
+    <div className="glass rounded-lg overflow-hidden flex flex-col h-full">
+      <div className="px-4 py-3 border-b border-white/5 shrink-0 bg-white/5">
+        <h2 className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">Live Signal Feed</h2>
       </div>
 
-      <div className="overflow-auto">
-        <table className="w-full text-xs">
-          <thead className="sticky top-0 z-10 bg-gray-800 text-gray-400">
+      <div className="overflow-auto custom-scrollbar flex-1">
+        <table className="w-full text-[10px]">
+          <thead className="sticky top-0 z-10 bg-gray-950/80 backdrop-blur-md text-gray-500 uppercase tracking-tighter">
             <tr>
               <th className="px-3 py-2 text-left  whitespace-nowrap">Time</th>
               <th className="px-3 py-2 text-left  whitespace-nowrap font-mono">ID</th>
@@ -72,31 +72,36 @@ export default function FeedTable({ signals }) {
                   <tr
                     key={s.id}
                     className={`
-                      border-t border-gray-800/60
-                      ${ROW_BG[s.label] ?? 'bg-gray-900'}
-                      transition-colors duration-200
-                      ${idx === 0 ? 'animate-[fadeIn_0.25s_ease-in]' : ''}
+                      border-t border-white/5
+                      ${idx === 0 ? 'bg-white/5 translate-y-0.5' : ''}
+                      transition-all duration-300
+                      ${s.label === 'hostile' ? 'hover:bg-red-900/10' : 'hover:bg-white/5'}
                     `}
                   >
-                    <td className="px-3 py-1.5 text-gray-400 font-mono whitespace-nowrap">
-                      {new Date(s.timestamp).toLocaleTimeString()}
+                    <td className="px-3 py-1.5 text-gray-500 font-mono whitespace-nowrap">
+                      {new Date(s.timestamp).toLocaleTimeString('en-GB')}
                     </td>
-                    <td className="px-3 py-1.5 text-gray-500 font-mono">{s.id}</td>
-                    <td className="px-3 py-1.5 text-right font-mono text-gray-200">
+                    <td className="px-3 py-1.5 text-gray-600 font-mono italic">{s.id.split('-')[0]}</td>
+                    <td className={`px-3 py-1.5 text-right font-mono font-bold ${s.label === 'hostile' ? 'glow-red text-red-400' : 'text-gray-300'}`}>
                       {s.frequency_mhz.toFixed(2)}
                     </td>
-                    <td className="px-3 py-1.5 text-right font-mono text-gray-200">
+                    <td className="px-3 py-1.5 text-right font-mono text-gray-400">
                       {s.power_dbm.toFixed(1)}
                     </td>
-                    <td className="px-3 py-1.5 text-center font-mono text-gray-300">
+                    <td className="px-3 py-1.5 text-center font-mono text-gray-500">
                       {s.modulation}
                     </td>
                     <td className="px-3 py-1.5 text-center">
-                      <span className={`px-2 py-0.5 rounded-full text-[11px] font-semibold ${BADGE[s.label]}`}>
+                      <span className={`
+                        px-2 py-0.5 rounded-sm text-[9px] font-black uppercase tracking-tighter
+                        ${s.label === 'hostile' ? 'bg-red-500/10 text-red-500 border border-red-500/20' : 
+                          s.label === 'friendly' ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20' : 
+                          'bg-amber-500/10 text-amber-500 border border-amber-500/20'}
+                      `}>
                         {s.label}
                       </span>
                     </td>
-                    <td className="px-3 py-1.5 text-right font-mono text-gray-300">
+                    <td className="px-3 py-1.5 text-right font-mono text-gray-400">
                       {(s.confidence * 100).toFixed(0)}%
                     </td>
                     <td className="px-3 py-1.5">
