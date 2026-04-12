@@ -2,9 +2,11 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 
 const MAX_SIGNALS = 50
 
+const WS_URL = import.meta.env.VITE_WS_URL ||
+  `ws://${window.location.host}/ws/signals`
+
 function getWsUrl() {
-  const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
-  return `${proto}://${window.location.host}/ws/signals`
+  return WS_URL
 }
 
 export default function useSignalFeed() {
