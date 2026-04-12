@@ -21,7 +21,7 @@ from simulator import SignalGenerator
 MODEL_PATH = os.path.join(os.path.dirname(__file__), "model.pkl")
 LABEL_MAP = {"friendly": 0, "unknown": 1, "hostile": 2}
 MOD_COLS = ["AM", "FM", "PSK", "QAM"]
-N_SIGNALS = 2000  # per class → 6000 total
+N_SIGNALS = 1000  # per class → 3000 total
 
 
 def extract_features(signal: dict) -> list[float]:

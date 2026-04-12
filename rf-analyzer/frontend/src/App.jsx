@@ -9,20 +9,8 @@ import RadarWidget from './components/RadarWidget'
 import TerminalLog from './components/TerminalLog'
 import SpectrogramCanvas from './components/SpectrogramCanvas'
 import { useThreatMode } from './context/ThemeContext'
-
-function MetricCard({ label, value, highlight, glowing }) {
-  return (
-    <div
-      className="glass-panel rounded-lg px-5 py-4"
-      style={glowing ? { animation: 'threat-glow-pulse 1s ease-in-out infinite' } : {}}
-    >
-      <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">{label}</p>
-      <p className={`text-2xl font-bold font-mono ${highlight ? 'glow-red' : 'text-gray-100'}`}>
-        {value}
-      </p>
-    </div>
-  )
-}
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
 
 function NoConnectionOverlay() {
   return (
@@ -72,49 +60,51 @@ export default function App() {
       <AlertOverlay />
 
       {/* ── Top bar ── */}
-      <header
-        className="flex items-center justify-between px-6 h-14"
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 40,
-          background: 'rgba(5, 15, 30, 0.85)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          borderBottom: '1px solid rgba(0,255,65,0.15)',
-          boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
-        }}
-      >
-        <div>
-          <h1
-            className="text-xl font-bold tracking-tight glow-green"
-            style={{ fontFamily: "'Share Tech Mono', monospace" }}
-          >
-            RF Signal Analyzer
-          </h1>
-          <p className="text-xs text-gray-500 mt-0.5">Synthetic Signal Intelligence Dashboard</p>
-        </div>
+      <header className="sticky top-0 z-40">
+        <Card
+          className="rounded-none border-0 h-14 flex items-center px-6 relative"
+          style={{
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            background: 'rgba(5, 15, 30, 0.85)',
+            borderBottom: '1px solid rgba(0,255,65,0.15)',
+            boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
+          }}
+        >
+          {/* LEFT: title + subtitle */}
+          <div className="shrink-0">
+            <h1
+              className="text-xl font-bold tracking-tight glow-green"
+              style={{ fontFamily: "'Share Tech Mono', monospace" }}
+            >
+              RF Signal Analyzer
+            </h1>
+            <p className="text-xs text-gray-500 mt-0.5">Synthetic Signal Intelligence Dashboard</p>
+          </div>
 
-        <div className="flex items-center gap-4">
-          <span className="text-xs font-mono text-gray-500 tabular-nums">
-            {signalsPerSec} sig/s
-          </span>
+          {/* CENTER: scenario switcher — absolutely centered */}
+          <div className="absolute left-1/2 -translate-x-1/2">
+            <ScenarioSwitcher />
+          </div>
 
-          {/* Connection dot with expanding ring when live */}
-          <span
-            className={`w-2.5 h-2.5 rounded-full shrink-0 ${connected ? 'bg-green-400' : 'bg-red-500'}`}
-            style={connected
-              ? { color: '#4ade80', animation: 'dot-ring 1.4s ease-out infinite' }
-              : { color: '#ef4444' }
-            }
-            title={connected ? 'Connected' : 'Disconnected'}
-          />
-          <span className={`text-xs ${connected ? 'text-green-400' : 'text-red-400'}`}>
-            {connected ? 'Live' : 'Disconnected'}
-          </span>
+          {/* RIGHT: sig/s + separator + live indicator */}
+          <div className="ml-auto flex items-center gap-3 shrink-0">
+            <span className="text-xs font-mono text-muted-foreground tabular-nums">
+              {signalsPerSec} sig/s
+            </span>
 
-          <ScenarioSwitcher />
-        </div>
+            <Separator orientation="vertical" className="h-4" />
+
+            <span
+              className={`w-2.5 h-2.5 rounded-full shrink-0 ${connected ? 'bg-green-400' : 'bg-red-500'}`}
+              style={connected ? { animation: 'dot-ring 1.4s ease-out infinite' } : {}}
+              title={connected ? 'Connected' : 'Disconnected'}
+            />
+            <span className={`text-xs font-mono ${connected ? 'text-green-400' : 'text-red-400'}`}>
+              {connected ? 'LIVE' : 'DISCONNECTED'}
+            </span>
+          </div>
+        </Card>
       </header>
 
       {/* ── Main content ── */}
@@ -123,23 +113,43 @@ export default function App() {
 
         <main className="p-6 flex flex-col gap-5">
 
-          {/* Row 1: Metric cards — equal width */}
-          <div className="grid grid-cols-3 gap-4">
-            <MetricCard
-              label="Total Signals"
-              value={animatedTotal.toLocaleString()}
-            />
-            <MetricCard
-              label="Current Threat Score"
-              value={animatedThreat}
-              highlight={isHighThreat}
-              glowing={isHighThreat}
-            />
-            <MetricCard
-              label="Avg Confidence"
-              value={avgConfDisplay}
-            />
-          </div>
+          {/* Row 1: Metric bar — single 56px strip */}
+          <Card className="h-14 flex items-center border-border/40 bg-card/60 backdrop-blur-sm">
+            <CardContent className="flex items-center w-full h-full p-0 px-2">
+
+              <CardHeader className="flex-row items-center gap-3 p-0 px-4 space-y-0 flex-1">
+                <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground whitespace-nowrap">
+                  Total Signals
+                </p>
+                <CardTitle className="text-base font-mono font-bold leading-none text-foreground">
+                  {animatedTotal.toLocaleString()}
+                </CardTitle>
+              </CardHeader>
+
+              <Separator orientation="vertical" className="h-6" />
+
+              <CardHeader className="flex-row items-center gap-3 p-0 px-4 space-y-0 flex-1">
+                <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground whitespace-nowrap">
+                  Threat Score
+                </p>
+                <CardTitle className={`text-base font-mono font-bold leading-none ${isHighThreat ? 'text-destructive' : 'text-foreground'}`}>
+                  {animatedThreat}
+                </CardTitle>
+              </CardHeader>
+
+              <Separator orientation="vertical" className="h-6" />
+
+              <CardHeader className="flex-row items-center gap-3 p-0 px-4 space-y-0 flex-1">
+                <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground whitespace-nowrap">
+                  Avg Confidence
+                </p>
+                <CardTitle className="text-base font-mono font-bold leading-none text-foreground">
+                  {avgConfDisplay}
+                </CardTitle>
+              </CardHeader>
+
+            </CardContent>
+          </Card>
 
           {/* Row 2: Spectrum waterfall — full width */}
           <SpectrogramCanvas signals={signals} />

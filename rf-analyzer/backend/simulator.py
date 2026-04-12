@@ -21,59 +21,52 @@ class SignalGenerator:
         probs = [weights["friendly"], weights["unknown"], weights["hostile"]]
         return self.rng.choice(CLASSES, p=probs)
 
-    def _gaussian_noise(self, value: float, std: float = 2.0) -> float:
-        return value + self.rng.normal(0, std)
-
     def generate(self, scenario: str = "active_conflict") -> dict:
         cls = self._pick_class(scenario)
 
         if cls == "friendly":
-            freq_center = self.rng.uniform(136, 174)
-            power_center = self.rng.uniform(-80, -60)
-            bw = self.rng.uniform(10, 30)
-            duration = int(self.rng.normal(500, 80))
-            modulation = self.rng.choice(["AM", "FM"])
-            freq_hop_flag = 0
-            burst_regularity = float(np.clip(self.rng.normal(0.85, 0.08), 0.0, 1.0))
+            freq_center   = self.rng.uniform(130, 320)          # overlaps unknown 250–320
+            power_dbm     = float(np.clip(self.rng.normal(-70, 8),  -95, -30))
+            bandwidth_khz = float(np.clip(self.rng.normal(15, 5),     2,  60))
+            duration_ms   = max(1, int(self.rng.normal(120, 30)))
+            modulation    = self.rng.choice(["AM", "FM"], p=[0.6, 0.4])
+            freq_hop_flag = 0 if self.rng.random() < 0.95 else 1
+            burst_reg     = float(np.clip(self.rng.normal(0.80, 0.15), 0.0, 1.0))
 
         elif cls == "unknown":
-            freq_center = self.rng.uniform(300, 512)
-            power_center = self.rng.uniform(-70, -50)
-            bw = self.rng.uniform(20, 100)
-            duration = int(self.rng.normal(200, 100))
-            modulation = self.rng.choice(["AM", "FM", "PSK", "QAM"])
-            freq_hop_flag = 0
-            burst_regularity = float(np.clip(self.rng.normal(0.50, 0.15), 0.0, 1.0))
+            freq_center   = self.rng.uniform(250, 700)          # overlaps friendly 250–320, hostile 500–700
+            power_dbm     = float(np.clip(self.rng.normal(-60, 10), -95, -20))
+            bandwidth_khz = float(np.clip(self.rng.normal(30, 12),    2, 120))
+            duration_ms   = max(1, int(self.rng.normal(200, 60)))
+            modulation    = self.rng.choice(["AM", "FM", "PSK"], p=[0.3, 0.4, 0.3])
+            freq_hop_flag = 0 if self.rng.random() < 0.85 else 1
+            burst_reg     = float(np.clip(self.rng.normal(0.50, 0.20), 0.0, 1.0))
 
         else:  # hostile
-            freq_center = self.rng.uniform(2000, 4000)
-            power_center = self.rng.uniform(-55, -30)
-            bw = self.rng.uniform(100, 500)
-            duration = int(self.rng.normal(50, 20))
-            modulation = self.rng.choice(["PSK", "QAM"])
-            freq_hop_flag = 1
-            burst_regularity = float(np.clip(self.rng.normal(0.15, 0.08), 0.0, 1.0))
+            freq_center   = self.rng.uniform(500, 4000)         # overlaps unknown 500–700
+            power_dbm     = float(np.clip(self.rng.normal(-42, 10), -80, -10))
+            bandwidth_khz = float(np.clip(self.rng.normal(80, 25),    5, 300))
+            duration_ms   = max(1, int(self.rng.normal(80, 25)))
+            modulation    = self.rng.choice(["PSK", "QAM"], p=[0.5, 0.5])
+            freq_hop_flag = 1 if self.rng.random() < 0.85 else 0
+            burst_reg     = float(np.clip(self.rng.normal(0.20, 0.15), 0.0, 1.0))
 
-        # Apply Gaussian noise to frequency and power
-        frequency_mhz = round(self._gaussian_noise(freq_center, std=2.0), 3)
-        power_dbm = round(self._gaussian_noise(power_center, std=2.0), 2)
-
-        # Clamp duration to positive
-        duration_ms = max(1, duration)
+        # Gaussian noise on frequency
+        frequency_mhz = round(float(freq_center + self.rng.normal(0, 2)), 3)
 
         return {
             # --- WebSocket schema fields ---
             "id": str(uuid.uuid4()),
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "frequency_mhz": frequency_mhz,
-            "power_dbm": power_dbm,
-            "bandwidth_khz": round(float(bw), 2),
+            "power_dbm": round(power_dbm, 2),
+            "bandwidth_khz": round(bandwidth_khz, 2),
             "modulation": str(modulation),
             "duration_ms": duration_ms,
             "label": cls,
-            "confidence": None,   # filled in by classifier
-            "threat_score": None, # filled in by scorer
+            "confidence": None,    # filled in by classifier
+            "threat_score": None,  # filled in by scorer
             # --- ML-only features (stripped before WebSocket send) ---
-            "freq_hop_flag": freq_hop_flag,
-            "burst_regularity": round(burst_regularity, 4),
+            "freq_hop_flag": int(freq_hop_flag),
+            "burst_regularity": round(burst_reg, 4),
         }

@@ -2,6 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── shadcn/ui CSS variables — cyberpunk green-on-dark palette ── */
+:root {
+  --background: 222 47% 4%;
+  --foreground: 160 20% 88%;
+  --card: 222 47% 6%;
+  --card-foreground: 160 20% 88%;
+  --border: 160 60% 15%;
+  --input: 160 60% 10%;
+  --primary: 160 100% 50%;
+  --primary-foreground: 222 47% 4%;
+  --secondary: 222 47% 10%;
+  --secondary-foreground: 160 20% 70%;
+  --muted: 222 47% 8%;
+  --muted-foreground: 160 15% 45%;
+  --accent: 160 100% 50%;
+  --accent-foreground: 222 47% 4%;
+  --destructive: 0 85% 58%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 160 100% 50%;
+  --radius: 0.25rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
 /* ── Global background — near-black with military grid overlay ── */
 body {
   background-color: #030712;

@@ -1,45 +1,76 @@
-// Neon badge: glow-* classes supply their own `color`, so we only need bg + border
-const BADGE = {
-  friendly: 'bg-cyan-950/60  border border-cyan-500/30  glow-cyan',
-  unknown:  'bg-amber-950/60 border border-amber-500/30 glow-amber',
-  hostile:  'bg-red-950/60   border border-red-500/30   glow-red',
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+import { Badge } from "@/components/ui/badge"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Progress } from "@/components/ui/progress"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { cn } from "@/lib/utils"
+
+// Table is imported per spec; we render <table> directly so that sticky
+// thead works inside ScrollArea (Table's overflow-auto wrapper breaks sticky).
+void Table
+
+const ROW_CLASS = {
+  friendly: "hover:bg-cyan-950/20 border-b border-border/30",
+  unknown:  "hover:bg-amber-950/20 border-b border-border/30",
+  hostile:  "hover:bg-red-950/25  border-b border-border/30",
 }
 
-// Subtle tinted row backgrounds that work behind the glass table
-const ROW_BG = {
-  friendly: 'bg-cyan-950/20',
-  unknown:  'bg-amber-950/20',
-  hostile:  'bg-red-950/20',
+const BADGE_CLASS = {
+  friendly: "bg-cyan-950/60  border border-cyan-500/30  text-cyan-400  glow-cyan",
+  unknown:  "bg-amber-950/60 border border-amber-500/30 text-amber-400 glow-amber",
+  hostile:  "bg-red-950/60   border border-red-500/30   text-red-400   glow-red",
 }
 
-function ThreatBar({ score }) {
-  const color =
-    score >= 70 ? 'bg-red-500' :
-    score >= 40 ? 'bg-amber-400' :
-                  'bg-green-500'
+const BADGE_LABEL = {
+  friendly: "FRIENDLY",
+  unknown:  "UNKNOWN",
+  hostile:  "HOSTILE",
+}
+
+const HEAD_CLASS =
+  "px-3 py-2 text-[9px] font-medium uppercase tracking-[0.10em] text-muted-foreground h-auto"
+
+function ThreatCell({ score }) {
+  const barColor =
+    score >= 70 ? "[&>div]:bg-red-500"   :
+    score >= 40 ? "[&>div]:bg-amber-400" :
+                  "[&>div]:bg-green-500"
   return (
-    <div className="flex items-center gap-2">
-      <span className="w-7 text-right tabular-nums text-gray-300">{score}</span>
-      <div className="flex-1 h-1.5 rounded-full bg-gray-700/60 min-w-[48px]">
-        <div
-          className={`h-1.5 rounded-full transition-all duration-300 ${color}`}
-          style={{ width: `${score}%` }}
-        />
-      </div>
+    <div className="flex flex-col gap-1 min-w-[72px]">
+      <span className="tabular-nums text-[10px] text-right text-gray-300 leading-none">
+        {score}
+      </span>
+      <Progress value={score} className={cn("h-1.5 bg-gray-700/60", barColor)} />
     </div>
   )
 }
 
-const SKELETON_COLS = 8
+const SKEL_WIDTHS = [55, 70, 50, 45, 60, 55, 80]
+
 function SkeletonRow() {
   return (
-    <tr className="border-t border-green-500/5">
-      {Array.from({ length: SKELETON_COLS }).map((_, i) => (
-        <td key={i} className="px-3 py-2">
-          <div className="h-3 rounded bg-gray-800/60 animate-pulse" style={{ width: `${50 + (i * 17) % 40}%` }} />
-        </td>
+    <TableRow className="border-b border-border/20 hover:bg-transparent">
+      {SKEL_WIDTHS.map((w, i) => (
+        <TableCell key={i} className="px-3 py-2">
+          <div
+            className="h-3 rounded bg-gray-800/60 animate-pulse"
+            style={{ width: `${w}%` }}
+          />
+        </TableCell>
       ))}
-    </tr>
+    </TableRow>
   )
 }
 
@@ -53,64 +84,95 @@ export default function FeedTable({ signals }) {
         <h2 className="text-sm font-semibold text-gray-200 tracking-wide">Signal Feed</h2>
       </div>
 
-      <div className="overflow-auto flex-1">
-        <table className="w-full text-xs">
-          <thead className="sticky top-0 z-10 text-gray-400" style={{ background: 'rgba(0,0,0,0.5)' }}>
-            <tr>
-              <th className="px-3 py-2 text-left  whitespace-nowrap">Time</th>
-              <th className="px-3 py-2 text-left  whitespace-nowrap font-mono">ID</th>
-              <th className="px-3 py-2 text-right whitespace-nowrap">Freq (MHz)</th>
-              <th className="px-3 py-2 text-right whitespace-nowrap">Power (dBm)</th>
-              <th className="px-3 py-2 text-center">Mod</th>
-              <th className="px-3 py-2 text-center">Label</th>
-              <th className="px-3 py-2 text-right">Conf</th>
-              <th className="px-3 py-2 text-left min-w-[120px]">Threat</th>
-            </tr>
-          </thead>
-          <tbody>
+      <ScrollArea className="flex-1">
+        {/* Raw <table> keeps sticky thead working inside the ScrollArea viewport */}
+        <table className="w-full caption-bottom text-xs">
+          <TableHeader
+            className="sticky top-0 z-10 border-b border-border"
+            style={{ background: "hsl(var(--muted))" }}
+          >
+            <TableRow className="border-0 hover:bg-transparent">
+              <TableHead className={cn(HEAD_CLASS, "text-left")}>Time</TableHead>
+              <TableHead className={cn(HEAD_CLASS, "text-right")}>Freq (MHz)</TableHead>
+              <TableHead className={cn(HEAD_CLASS, "text-right")}>Power (dBm)</TableHead>
+              <TableHead className={cn(HEAD_CLASS, "text-center")}>Mod</TableHead>
+              <TableHead className={cn(HEAD_CLASS, "text-center")}>Label</TableHead>
+              <TableHead className={cn(HEAD_CLASS, "text-right")}>Conf</TableHead>
+              <TableHead className={cn(HEAD_CLASS, "text-left min-w-[80px]")}>Threat</TableHead>
+            </TableRow>
+          </TableHeader>
+
+          <TableBody>
             {loading
               ? Array.from({ length: 8 }).map((_, i) => <SkeletonRow key={i} />)
-              : rows.map((s, idx) => (
-                  <tr
-                    key={s.id}
-                    className={[
-                      'feed-row',
-                      `feed-row-${s.label}`,
-                      'border-t border-green-500/5',
-                      ROW_BG[s.label] ?? '',
-                      idx === 0 ? 'animate-[fadeIn_0.25s_ease-in]' : '',
-                    ].join(' ')}
-                  >
-                    <td className="px-3 py-1.5 text-gray-400 font-mono whitespace-nowrap">
-                      {new Date(s.timestamp).toLocaleTimeString()}
-                    </td>
-                    <td className="px-3 py-1.5 text-gray-500 font-mono">{s.id}</td>
-                    <td className="px-3 py-1.5 text-right font-mono text-gray-200">
-                      {s.frequency_mhz.toFixed(2)}
-                    </td>
-                    <td className="px-3 py-1.5 text-right font-mono text-gray-200">
-                      {s.power_dbm.toFixed(1)}
-                    </td>
-                    <td className="px-3 py-1.5 text-center font-mono text-gray-300">
-                      {s.modulation}
-                    </td>
-                    <td className="px-3 py-1.5 text-center">
-                      <span className={`px-2 py-0.5 rounded-full text-[11px] font-semibold ${BADGE[s.label]}`}>
-                        {s.label}
-                      </span>
-                    </td>
-                    <td className="px-3 py-1.5 text-right font-mono text-gray-300">
-                      {(s.confidence * 100).toFixed(0)}%
-                    </td>
-                    <td className="px-3 py-1.5">
-                      <ThreatBar score={s.threat_score} />
-                    </td>
-                  </tr>
-                ))
+              : rows.map((s, idx) => {
+                  const rowClass = cn(
+                    ROW_CLASS[s.label] ?? "border-b border-border/30",
+                    idx === 0 ? "animate-[fadeIn_0.25s_ease-in]" : ""
+                  )
+
+                  const cells = (
+                    <>
+                      <TableCell className="px-3 py-1.5 font-mono text-gray-400 whitespace-nowrap">
+                        {new Date(s.timestamp).toLocaleTimeString()}
+                      </TableCell>
+                      <TableCell className="px-3 py-1.5 text-right font-mono text-gray-200">
+                        {s.frequency_mhz.toFixed(2)}
+                      </TableCell>
+                      <TableCell className="px-3 py-1.5 text-right font-mono text-gray-200">
+                        {s.power_dbm.toFixed(1)}
+                      </TableCell>
+                      <TableCell className="px-3 py-1.5 text-center font-mono text-gray-300">
+                        {s.modulation}
+                      </TableCell>
+                      <TableCell className="px-3 py-1.5 text-center">
+                        <Badge
+                          variant="outline"
+                          className={cn(
+                            "rounded-full text-[10px] font-semibold px-2 py-0.5",
+                            BADGE_CLASS[s.label]
+                          )}
+                        >
+                          {BADGE_LABEL[s.label]}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="px-3 py-1.5 text-right font-mono text-gray-300">
+                        {(s.confidence * 100).toFixed(0)}%
+                      </TableCell>
+                      <TableCell className="px-3 py-1.5">
+                        <ThreatCell score={s.threat_score} />
+                      </TableCell>
+                    </>
+                  )
+
+                  if (s.label === "hostile") {
+                    return (
+                      <TooltipProvider key={s.id} delayDuration={300}>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <TableRow className={rowClass}>{cells}</TableRow>
+                          </TooltipTrigger>
+                          <TooltipContent
+                            side="left"
+                            className="max-w-xs p-3 bg-gray-950 border-red-500/30 text-gray-200"
+                          >
+                            <pre className="font-mono text-[10px] whitespace-pre-wrap break-all">
+                              {JSON.stringify(s, null, 2)}
+                            </pre>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    )
+                  }
+
+                  return (
+                    <TableRow key={s.id} className={rowClass}>{cells}</TableRow>
+                  )
+                })
             }
-          </tbody>
+          </TableBody>
         </table>
-      </div>
+      </ScrollArea>
     </div>
   )
 }
