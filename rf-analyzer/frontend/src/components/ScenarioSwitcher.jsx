@@ -14,7 +14,8 @@ export default function ScenarioSwitcher() {
   const [switching, setSwitching] = useState(false)
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/scenario`)
+    const path = API_BASE ? '/scenario' : '/api/scenario';
+    fetch(`${API_BASE}${path}`)
       .then(r => r.json())
       .then(d => setActive(d.scenario))
       .catch(() => setActive('active_conflict'))
@@ -24,7 +25,8 @@ export default function ScenarioSwitcher() {
     if (value === active || switching) return
     setSwitching(true)
     try {
-      const res = await fetch(`${API_BASE}/api/scenario`, {
+      const path = API_BASE ? '/scenario' : '/api/scenario';
+      const res = await fetch(`${API_BASE}${path}`, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({ name: value }),
