@@ -19,13 +19,13 @@ RUN apk add --no-cache gettext
 # Copy built React app
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy nginx template
-COPY nginx.conf /etc/nginx/templates/default.conf.template
+# Copy nginx template and entrypoint
+COPY nginx.conf /etc/nginx/conf.d/default.conf.template
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 
 # BACKEND_URL will be injected by Railway as an env variable
-# e.g. http://backend.railway.internal:8000
-# nginx Docker image auto-runs envsubst on /etc/nginx/templates/
-# when NGINX_ENVSUBST_TEMPLATE_DIR is set (it is by default)
+# Entrypoint will substitute it into the nginx config
 
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
