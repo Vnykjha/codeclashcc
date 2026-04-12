@@ -1,15 +1,23 @@
-import { useMemo } from 'react'
+import { useMemo, useEffect, useRef } from 'react'
 import useSignalFeed from './hooks/useSignalFeed'
+import useCountUp from './hooks/useCountUp'
 import FeedTable from './components/FeedTable'
 import ThreatChart from './components/ThreatChart'
-import AlertBanner from './components/AlertBanner'
+import AlertOverlay from './components/AlertOverlay'
 import ScenarioSwitcher from './components/ScenarioSwitcher'
+import RadarWidget from './components/RadarWidget'
+import TerminalLog from './components/TerminalLog'
+import SpectrogramCanvas from './components/SpectrogramCanvas'
+import { useThreatMode } from './context/ThemeContext'
 
-function MetricCard({ label, value, highlight, pulse }) {
+function MetricCard({ label, value, highlight, glowing }) {
   return (
-    <div className={`bg-gray-900 rounded-lg px-5 py-4 ${pulse ? 'animate-pulse' : ''}`}>
-      <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{label}</p>
-      <p className={`text-2xl font-bold font-mono ${highlight ? 'text-red-400' : 'text-gray-100'}`}>
+    <div
+      className="glass-panel rounded-lg px-5 py-4"
+      style={glowing ? { animation: 'threat-glow-pulse 1s ease-in-out infinite' } : {}}
+    >
+      <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">{label}</p>
+      <p className={`text-2xl font-bold font-mono ${highlight ? 'glow-red' : 'text-gray-100'}`}>
         {value}
       </p>
     </div>
@@ -30,63 +38,127 @@ function NoConnectionOverlay() {
 
 export default function App() {
   const { signals, threatScore, connected, totalSeen, signalsPerSec } = useSignalFeed()
+  const { alertActive, triggerAlert } = useThreatMode()
+  const lastSignalIdRef = useRef(null)
 
-  const avgConfidence = useMemo(() => {
-    if (signals.length === 0) return '—'
+  // Watch for new high-threat signals and fire the alert
+  useEffect(() => {
+    const latest = signals[0]
+    if (!latest) return
+    if (latest.id === lastSignalIdRef.current) return
+    lastSignalIdRef.current = latest.id
+    if (latest.threat_score > 70 && !alertActive) {
+      triggerAlert(latest)
+    }
+  }, [signals, triggerAlert, alertActive])
+
+  // ── Animated metric values ──────────────────────────────────────────────────
+  const animatedThreat = useCountUp(threatScore, 350)
+  const animatedTotal  = useCountUp(totalSeen,  400)
+
+  // Average confidence as integer 0–100 for animation, displayed as 0.XX
+  const avgConfNum = useMemo(() => {
+    if (signals.length === 0) return 0
     const avg = signals.reduce((sum, s) => sum + s.confidence, 0) / signals.length
-    return (avg * 100).toFixed(1) + '%'
+    return Math.round(avg * 100)
   }, [signals])
+  const animatedConf   = useCountUp(avgConfNum, 400)
+  const avgConfDisplay = signals.length === 0 ? '—' : (animatedConf / 100).toFixed(2)
+
+  const isHighThreat = threatScore > 70
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
-      <AlertBanner signals={signals} />
+    <div className={`min-h-screen bg-[#030712] text-gray-100 flex flex-col${alertActive ? ' alert-mode' : ''}`}>
+      <AlertOverlay />
 
-      {/* Top bar */}
-      <header className="flex items-center justify-between px-6 py-4 border-b border-gray-800">
+      {/* ── Top bar ── */}
+      <header
+        className="flex items-center justify-between px-6 h-14"
+        style={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 40,
+          background: 'rgba(5, 15, 30, 0.85)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          borderBottom: '1px solid rgba(0,255,65,0.15)',
+          boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
+        }}
+      >
         <div>
-          <h1 className="text-xl font-bold tracking-tight text-green-400">RF Signal Analyzer</h1>
+          <h1
+            className="text-xl font-bold tracking-tight glow-green"
+            style={{ fontFamily: "'Share Tech Mono', monospace" }}
+          >
+            RF Signal Analyzer
+          </h1>
           <p className="text-xs text-gray-500 mt-0.5">Synthetic Signal Intelligence Dashboard</p>
         </div>
+
         <div className="flex items-center gap-4">
-          {/* signals/sec counter */}
           <span className="text-xs font-mono text-gray-500 tabular-nums">
             {signalsPerSec} sig/s
           </span>
+
+          {/* Connection dot with expanding ring when live */}
           <span
-            className={`w-2.5 h-2.5 rounded-full ${connected ? 'bg-green-400 animate-pulse' : 'bg-red-500'}`}
+            className={`w-2.5 h-2.5 rounded-full shrink-0 ${connected ? 'bg-green-400' : 'bg-red-500'}`}
+            style={connected
+              ? { color: '#4ade80', animation: 'dot-ring 1.4s ease-out infinite' }
+              : { color: '#ef4444' }
+            }
             title={connected ? 'Connected' : 'Disconnected'}
           />
-          <span className="text-xs text-gray-400">{connected ? 'Live' : 'Disconnected'}</span>
+          <span className={`text-xs ${connected ? 'text-green-400' : 'text-red-400'}`}>
+            {connected ? 'Live' : 'Disconnected'}
+          </span>
+
           <ScenarioSwitcher />
         </div>
       </header>
 
-      {/* Main content — relative so the overlay can cover it */}
+      {/* ── Main content ── */}
       <div className="flex-1 relative">
         {!connected && <NoConnectionOverlay />}
 
-        <main className="p-6 space-y-5">
-          {/* Metric cards */}
+        <main className="p-6 flex flex-col gap-5">
+
+          {/* Row 1: Metric cards — equal width */}
           <div className="grid grid-cols-3 gap-4">
-            <MetricCard label="Total Signals" value={totalSeen.toLocaleString()} />
+            <MetricCard
+              label="Total Signals"
+              value={animatedTotal.toLocaleString()}
+            />
             <MetricCard
               label="Current Threat Score"
-              value={threatScore}
-              highlight={threatScore > 70}
-              pulse={threatScore > 70}
+              value={animatedThreat}
+              highlight={isHighThreat}
+              glowing={isHighThreat}
             />
-            <MetricCard label="Avg Confidence" value={avgConfidence} />
+            <MetricCard
+              label="Avg Confidence"
+              value={avgConfDisplay}
+            />
           </div>
 
-          {/* Main grid */}
-          <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
-            <div className="xl:col-span-2">
+          {/* Row 2: Spectrum waterfall — full width */}
+          <SpectrogramCanvas signals={signals} />
+
+          {/* Row 3: FeedTable (flex-1) + ThreatChart (flex-1) + RadarWidget (300px) */}
+          <div className="flex gap-4 items-stretch h-[360px]">
+            <div className="flex-1 min-w-0">
               <FeedTable signals={signals} />
             </div>
-            <div>
+            <div className="flex-1 min-w-0">
               <ThreatChart signals={signals} />
             </div>
+            <div className="flex-shrink-0">
+              <RadarWidget signals={signals} />
+            </div>
           </div>
+
+          {/* Row 4: Terminal log — full width */}
+          <TerminalLog signals={signals} />
         </main>
       </div>
     </div>

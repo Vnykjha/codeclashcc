@@ -2,7 +2,156 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Global background — near-black with military grid overlay ── */
+body {
+  background-color: #030712;
+  background-image:
+    linear-gradient(rgba(0,255,65,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,65,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Glassmorphism panel ── */
+.glass-panel {
+  background: rgba(5, 15, 30, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 65, 0.12);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(0, 255, 65, 0.3);
+  box-shadow: 0 0 30px rgba(0,0,0,0.5), 0 0 15px rgba(0,255,65,0.08), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* ── Neon glow text ── */
+.glow-green { color: #00ff41; text-shadow: 0 0 8px rgba(0,255,65,0.7),   0 0 20px rgba(0,255,65,0.3); }
+.glow-red   { color: #ff2020; text-shadow: 0 0 8px rgba(255,32,32,0.8),  0 0 20px rgba(255,32,32,0.4); }
+.glow-cyan  { color: #00ffcc; text-shadow: 0 0 8px rgba(0,255,204,0.7),  0 0 20px rgba(0,255,204,0.3); }
+.glow-amber { color: #fbbf24; text-shadow: 0 0 8px rgba(251,191,36,0.6); }
+
+/* ── Signal feed table row hover ── */
+tr.feed-row {
+  transition: all 0.1s ease;
+}
+tr.feed-row:hover {
+  filter: brightness(1.25);
+}
+tr.feed-row-friendly:hover { box-shadow: inset 3px 0 0 #00ffcc; }
+tr.feed-row-unknown:hover  { box-shadow: inset 3px 0 0 #fbbf24; }
+tr.feed-row-hostile:hover  { box-shadow: inset 3px 0 0 #ff2020; }
+
+/* ── Keyframes ── */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-4px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+  0%,100% { transform: translate(0,0) rotate(0deg); }
+  10% { transform: translate(-4px, -2px) rotate(-0.5deg); }
+  20% { transform: translate(4px, 2px) rotate(0.5deg); }
+  30% { transform: translate(-4px, 2px) rotate(0deg); }
+  40% { transform: translate(4px, -2px) rotate(0.5deg); }
+  50% { transform: translate(-2px, 4px) rotate(-0.5deg); }
+  60% { transform: translate(-4px, -2px) rotate(0deg); }
+  70% { transform: translate(4px, 2px) rotate(-0.5deg); }
+  80% { transform: translate(-2px, -4px) rotate(0.5deg); }
+  90% { transform: translate(2px, 4px) rotate(0deg); }
+}
+
+@keyframes glitch-1 {
+  0%,100% { clip-path: inset(0 0 95% 0); transform: translate(-2px,0); opacity: 0.55; }
+  20% { clip-path: inset(30% 0 50% 0); transform: translate(2px,0); opacity: 0.6; }
+  40% { clip-path: inset(60% 0 20% 0); transform: translate(-1.5px,0); opacity: 0.5; }
+  60% { clip-path: inset(10% 0 80% 0); transform: translate(1.5px,0); opacity: 0.55; }
+  80% { clip-path: inset(80% 0 5% 0); transform: translate(-2px,0); opacity: 0.5; }
+}
+
+@keyframes glitch-2 {
+  0%,100% { clip-path: inset(50% 0 30% 0); transform: translate(2px,0); color: rgba(255,0,64,0.7); opacity: 0.45; }
+  25% { clip-path: inset(20% 0 60% 0); transform: translate(-2px,0); color: rgba(0,200,200,0.6); opacity: 0.4; }
+  50% { clip-path: inset(70% 0 10% 0); transform: translate(1.5px,0); opacity: 0.45; }
+  75% { clip-path: inset(5% 0 85% 0); transform: translate(-1.5px,0); color: rgba(255,0,64,0.7); opacity: 0.4; }
+}
+
+@keyframes crimson-flash {
+  0% { background-color: transparent; }
+  15% { background-color: rgba(180, 0, 0, 0.18); }
+  30% { background-color: rgba(180, 0, 0, 0.08); }
+  50% { background-color: rgba(180, 0, 0, 0.15); }
+  100% { background-color: rgba(180, 0, 0, 0.10); }
+}
+
+@keyframes border-pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(220,0,0,0); }
+  50% { box-shadow: 0 0 0 6px rgba(220,0,0,0.35), inset 0 0 40px rgba(220,0,0,0.08); }
+}
+
+.alert-mode {
+  animation: shake 0.5s ease-out, crimson-flash 6s ease-out forwards,
+             border-pulse 1.2s ease-in-out 3;
+  /* outline instead of border — does not affect box model / no layout reflow */
+  outline: 2px solid rgba(220,0,0,0.6);
+  outline-offset: -2px;
+}
+
+/* ── Metric card threat glow pulse ── */
+@keyframes threat-glow-pulse {
+  0%,100% { box-shadow: 0 0 15px rgba(220,0,0,0.3); }
+  50%      { box-shadow: 0 0 30px rgba(220,0,0,0.7), 0 0 60px rgba(220,0,0,0.2); }
+}
+
+/* ── Connection status dot ring ── */
+@keyframes dot-ring {
+  0%   { box-shadow: 0 0 0 0 currentColor; }
+  100% { box-shadow: 0 0 0 8px transparent; }
+}
+
+/* ── Radar sweep arm ── */
+@keyframes sweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.sweep-arm {
+  transform-origin: 150px 150px;
+  animation: sweep 3s linear infinite;
+}
+
+/* ── Friendly dot: expand and fade out over the dot lifetime ── */
+@keyframes ping-fade {
+  0%   { opacity: 1; r: 4; }
+  100% { opacity: 0; r: 10; }
+}
+
+/* ── Hostile dot: throb between sizes ── */
+@keyframes hostile-pulse {
+  0%,100% { r: 5; opacity: 1; }
+  50%     { r: 8; opacity: 0.6; }
+}
+
+/* ── Hostile targeting reticle: scale-snap in, then hold ── */
+@keyframes reticle-snap {
+  0%   { opacity: 0; transform: scale(2); }
+  15%  { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.8; transform: scale(1); }
+}
+
+/* ── Terminal cursor blink ── */
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0; }
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+/* ── Hide scrollbar inside terminal log (webkit) ── */
+.terminal-log-body::-webkit-scrollbar {
+  display: none;
 }

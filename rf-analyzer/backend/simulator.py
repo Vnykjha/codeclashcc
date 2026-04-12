@@ -6,7 +6,7 @@ import numpy as np
 SCENARIOS = {
     "peacekeeping":    {"friendly": 0.90, "unknown": 0.08, "hostile": 0.02},
     "border_patrol":   {"friendly": 0.60, "unknown": 0.25, "hostile": 0.15},
-    "active_conflict": {"friendly": 0.30, "unknown": 0.20, "hostile": 0.50},
+    "active_conflict": {"friendly": 0.45, "unknown": 0.30, "hostile": 0.25},
 }
 
 CLASSES = ["friendly", "unknown", "hostile"]

@@ -60,7 +60,7 @@ export default function useSignalFeed() {
         tsWindowRef.current.push(Date.now())
         setThreatScore(signal.threat_score)
         setTotalSeen(n => n + 1)
-        setSignals(prev => [signal, ...prev].slice(0, MAX_SIGNALS))
+        setSignals(prev => [signal, ...prev.filter(s => s.id !== signal.id)].slice(0, MAX_SIGNALS))
       }
     }
 

@@ -37,7 +37,7 @@ Alert threshold: score > 70
 ## Scenarios
 - peacekeeping:    90% friendly, 8% unknown, 2% hostile
 - border_patrol:   60% friendly, 25% unknown, 15% hostile
-- active_conflict: 30% friendly, 20% unknown, 50% hostile
+- active_conflict: 45% friendly, 30% unknown, 25% hostile
 
 ## Ports
 - Production (Docker):  http://localhost (nginx on port 80)
@@ -82,3 +82,46 @@ Saved to backend/model.pkl via joblib.
 - Never change signal schema once frontend exists
 - Keep all components in separate files
 - freq_hop_flag and burst_regularity are ML features — never send them over WebSocket
+
+## Frontend component list
+
+### Hooks
+- src/hooks/useSignalFeed.js   — WebSocket client; exposes signals[], threatScore, connected, totalSeen, signalsPerSec
+- src/hooks/useCountUp.js      — rAF easeOutQuart counter animation; useCountUp(target, duration) → integer
+
+### Context
+- src/context/ThemeContext.jsx  — ThemeProvider + useThreatMode(); alertActive, alertSignal, triggerAlert(), clearAlert()
+
+### Components
+- src/components/AlertOverlay.jsx      — Sticky z-50 threat banner with glitch text + countdown; click to dismiss
+- src/components/ScenarioSwitcher.jsx  — Three scenario buttons; calls POST /api/scenario
+- src/components/MetricCard            — Inline in App.jsx; glass-panel card with animated value
+- src/components/SpectrogramCanvas.jsx — HTML5 canvas waterfall; Gaussian blobs; ResizeObserver full-width
+- src/components/FeedTable.jsx         — Scrollable signal table, last 50 rows, neon label badges
+- src/components/ThreatChart.jsx       — Recharts AreaChart, last 30 signals, #ff2020 neon line
+- src/components/RadarWidget.jsx       — Pure SVG radar; rotating sweep arm; friendly/hostile/unknown dots
+- src/components/TerminalLog.jsx       — Typewriter terminal log; master 16ms ticker; 220px fixed height
+
+### Dashboard layout (App.jsx, at 1280px viewport)
+```
+┌─ sticky header (z-40) ─────────────────────────────────┐
+│  Title · sig/s · connection dot · ScenarioSwitcher      │
+└────────────────────────────────────────────────────────-┘
+┌─ sticky AlertOverlay (z-50, only when alertActive) ────┐
+└────────────────────────────────────────────────────────┘
+main  p-6  flex-col  gap-5
+  Row 1 │ grid-cols-3  gap-4
+        │  MetricCard(Total)  MetricCard(ThreatScore)  MetricCard(AvgConf)
+  Row 2 │ SpectrogramCanvas  (full width, 180px canvas)
+  Row 3 │ flex  gap-4  items-start
+        │  FeedTable(flex-1)  ThreatChart(flex-1)  RadarWidget(300px fixed)
+  Row 4 │ TerminalLog  (full width, 220px fixed)
+```
+
+### Z-index layer order
+| Layer            | z-index | position |
+|------------------|---------|----------|
+| AlertOverlay     | 50      | sticky   |
+| Header           | 40      | sticky   |
+| NoConnectionOverlay | 40   | absolute (within flex-1 content div) |
+| Panels           | —       | static   |

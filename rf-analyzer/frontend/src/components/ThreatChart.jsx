@@ -4,9 +4,17 @@ import {
   Tooltip, ReferenceLine, ResponsiveContainer,
 } from 'recharts'
 
-const GRID  = { strokeDasharray: '3 3', stroke: '#374151' }
-const TICK  = { fill: '#6b7280', fontSize: 11 }
-const TIP   = { background: '#111827', border: '1px solid #374151', color: '#f9fafb', fontSize: 12 }
+const NEON_RED = '#ff2020'
+
+const GRID = { strokeDasharray: '3 3', stroke: 'rgba(0,255,65,0.08)' }
+const TICK = { fill: '#6b7280', fontSize: 11 }
+const TIP  = {
+  background: 'rgba(5,15,30,0.95)',
+  border: '1px solid rgba(0,255,65,0.2)',
+  color: '#f9fafb',
+  fontSize: 12,
+  backdropFilter: 'blur(8px)',
+}
 
 function CustomTooltip({ active, payload }) {
   if (!active || !payload?.length) return null
@@ -14,10 +22,10 @@ function CustomTooltip({ active, payload }) {
   return (
     <div style={TIP} className="rounded px-3 py-2 shadow-lg">
       <p className="text-gray-400 text-[11px] mb-1">{d.time}</p>
-      <p className="font-mono font-bold text-red-400">Score: {d.score}</p>
+      <p className="font-mono font-bold" style={{ color: NEON_RED }}>Score: {d.score}</p>
       <p className={`text-[11px] capitalize ${
-        d.label === 'hostile' ? 'text-red-400' :
-        d.label === 'unknown' ? 'text-amber-400' : 'text-green-400'
+        d.label === 'hostile' ? 'glow-red' :
+        d.label === 'unknown' ? 'glow-amber' : 'glow-cyan'
       }`}>{d.label}</p>
     </div>
   )
@@ -26,8 +34,8 @@ function CustomTooltip({ active, payload }) {
 export default function ThreatChart({ signals }) {
   const data = useMemo(() =>
     signals
-      .slice(0, 30)       // newest-first from hook
-      .reverse()          // oldest-first for left→right time flow
+      .slice(0, 30)
+      .reverse()
       .map(s => ({
         time:  new Date(s.timestamp).toLocaleTimeString(),
         score: s.threat_score,
@@ -36,8 +44,8 @@ export default function ThreatChart({ signals }) {
   , [signals])
 
   return (
-    <div className="bg-gray-900 rounded-lg p-4">
-      <h2 className="text-sm font-semibold text-gray-300 mb-4">
+    <div className="glass-panel rounded-lg p-4">
+      <h2 className="text-sm font-semibold text-gray-200 mb-4 tracking-wide">
         Threat score — live
       </h2>
 
@@ -45,8 +53,8 @@ export default function ThreatChart({ signals }) {
         <AreaChart data={data} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
           <defs>
             <linearGradient id="threatFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%"  stopColor="#ef4444" stopOpacity={0.15} />
-              <stop offset="95%" stopColor="#ef4444" stopOpacity={0.02} />
+              <stop offset="5%"  stopColor={NEON_RED} stopOpacity={0.2} />
+              <stop offset="95%" stopColor={NEON_RED} stopOpacity={0.02} />
             </linearGradient>
           </defs>
 
@@ -68,12 +76,12 @@ export default function ThreatChart({ signals }) {
 
           <ReferenceLine
             y={70}
-            stroke="#ef4444"
+            stroke={NEON_RED}
             strokeDasharray="5 3"
-            strokeOpacity={0.7}
+            strokeOpacity={0.6}
             label={{
               value: 'Alert threshold',
-              fill: '#ef4444',
+              fill: NEON_RED,
               fontSize: 10,
               position: 'insideTopRight',
             }}
@@ -82,12 +90,13 @@ export default function ThreatChart({ signals }) {
           <Area
             type="monotone"
             dataKey="score"
-            stroke="#ef4444"
+            stroke={NEON_RED}
             strokeWidth={2}
             fill="url(#threatFill)"
             dot={false}
-            activeDot={{ r: 4, fill: '#ef4444', strokeWidth: 0 }}
+            activeDot={{ r: 4, fill: NEON_RED, strokeWidth: 0 }}
             isAnimationActive={false}
+            style={{ filter: 'drop-shadow(0 0 4px rgba(255,32,32,0.7))' }}
           />
         </AreaChart>
       </ResponsiveContainer>
