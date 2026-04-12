@@ -2,8 +2,12 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 
 const MAX_SIGNALS = 50
 
-const WS_URL = import.meta.env.VITE_WS_URL ||
-  `ws://${window.location.host}/ws/signals`
+// Works in all environments:
+// - Local dev: proxied through Vite to localhost:8000
+// - Docker local: proxied through Nginx to backend:8000
+// - Railway prod: proxied through Nginx to backend Railway URL
+const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:'
+const WS_URL = `${protocol}//${window.location.host}/ws/signals`
 
 function getWsUrl() {
   return WS_URL
